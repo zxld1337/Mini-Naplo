@@ -2,8 +2,5 @@
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project is a modern E-diary with the kreta-api.
 
-#� �g�l�a�s�s�_�u�i�
-�
-�
