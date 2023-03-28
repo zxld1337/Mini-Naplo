@@ -1,5 +1,3 @@
-/1unUsed/
-
 # Miscellaneous
 *.class
 *.log
@@ -44,3 +42,8 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# my ignores
+
+# test files / un used ones
+/lib/1unUsed
