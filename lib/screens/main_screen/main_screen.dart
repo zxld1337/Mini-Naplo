@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 // components
 import 'package:glass_ui/routes/app_pages.dart';
 import '../../controllers/frame_controller.dart';
-import '../../utils/const_varibles.dart';
+import '../../utils/view_const.dart';
 import 'components/custom_navbar.dart';
 
 

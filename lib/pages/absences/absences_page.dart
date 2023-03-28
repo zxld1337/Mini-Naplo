@@ -8,8 +8,7 @@ import '../page_frame.dart';
 import 'components/absences_tile.dart';
 import 'components/square_tile.dart';
 // utils
-import '../../utils/image_dict.dart';
-import '../../utils/const_varibles.dart';
+import 'package:glass_ui/utils/constants.dart';
 
 class AbsencesPage extends StatelessWidget {
   AbsencesPage({super.key});

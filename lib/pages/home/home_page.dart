@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:glass_ui/controllers/api_controller.dart';
 import 'package:glass_ui/pages/home/components/eval_tile.dart';
-import 'package:glass_ui/utils/color_dict.dart';
-import 'package:glass_ui/utils/const_varibles.dart';
+import 'package:glass_ui/utils/constants.dart';
 import '../page_frame.dart';
 
 class HomePage extends StatelessWidget {

@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:get/get.dart';
 
-
 import '../../../controllers/chart_controller.dart';
-import '../../../utils/const_varibles.dart';
+import 'package:glass_ui/utils/constants.dart';
 import '../models/piechart_selections.dart';
 
 class PieChartTile extends StatelessWidget {

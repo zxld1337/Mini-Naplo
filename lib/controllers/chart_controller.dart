@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import 'package:glass_ui/models/grade.dart';
 import 'package:glass_ui/pages/grades/models/value_count.dart';
 import 'package:flutter/material.dart';
-import 'package:glass_ui/utils/color_dict.dart';
+import 'package:glass_ui/utils/constants.dart';
 
 class ChartController extends GetxController {
   final valueData = <ValueCount>[].obs;

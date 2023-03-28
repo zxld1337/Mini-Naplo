@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'app_routes.dart';
 // screens
-import 'package:glass_ui/screens/login/login_screen.dart';
-import 'package:glass_ui/screens/main_frame/main_frame.dart';
+import 'package:glass_ui/screens/login_screen/login_screen.dart';
+import 'package:glass_ui/screens/main_screen/main_screen.dart';
 // pages
 import 'package:glass_ui/pages/absences/absences_page.dart';
 import 'package:glass_ui/pages/home/home_page.dart';

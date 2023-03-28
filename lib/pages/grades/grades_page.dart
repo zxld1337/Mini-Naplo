@@ -8,8 +8,7 @@ import 'package:glass_ui/pages/grades/components/stats_tile.dart';
 import 'package:glass_ui/pages/page_frame.dart';
 import 'components/grade_tile.dart';
 //utils
-import 'package:glass_ui/utils/const_varibles.dart';
-import 'package:glass_ui/utils/color_dict.dart';
+import 'package:glass_ui/utils/constants.dart';
 
 class GradesPage extends StatelessWidget {
   GradesPage({super.key});

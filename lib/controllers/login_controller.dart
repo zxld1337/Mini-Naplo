@@ -1,7 +1,7 @@
 // basic
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:glass_ui/utils/const_varibles.dart';
+import 'package:glass_ui/utils/constants.dart';
 // services
 import 'package:glass_ui/api/user.dart';
 // routing

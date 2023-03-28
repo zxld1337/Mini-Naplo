@@ -6,7 +6,7 @@ import 'package:glass_ui/models/grade.dart';
 import 'package:glass_ui/models/student.dart';
 import 'package:glass_ui/models/timetable.dart';
 import 'package:hive/hive.dart';
-import '../../utils/const_varibles.dart' as cv;
+import 'package:glass_ui/utils/constants.dart' as cv;
 import 'chart_controller.dart';
 
 class ApiController extends GetxService {
@@ -16,7 +16,7 @@ class ApiController extends GetxService {
 
   final absence = Absences().obs;
   final student = Student().obs;
-  final apiClient = User.new.obs;
+  var user = User.new.obs;
 
   final db = Hive.box('MainBox');
 
@@ -28,7 +28,7 @@ class ApiController extends GetxService {
   }
 
   Future getData() async {
-    User user = User(
+    final user = User(
       db.get('username'),
       db.get('password'),
       cv.ist,

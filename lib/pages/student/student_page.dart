@@ -7,7 +7,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 // component
 import 'components/info_tile.dart';
 import '../page_frame.dart';
-import '../../utils/const_varibles.dart';
+import 'package:glass_ui/utils/constants.dart';
 
 class StudentPage extends StatelessWidget {
   const StudentPage({super.key});

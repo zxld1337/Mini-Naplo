@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:glass_ui/utils/const_varibles.dart';
+import 'package:glass_ui/utils/constants.dart';
 
 class GradeTile extends StatelessWidget {
   final String subject;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:glass_ui/controllers/frame_controller.dart';
-import '../../../utils/const_varibles.dart';
+import '../../../utils/view_const.dart';
 import '../helpers/navbar_items.dart';
 // rive imports
 import 'package:rive/rive.dart';

@@ -6,9 +6,7 @@ import 'package:glass_ui/controllers/api_controller.dart';
 import 'components/lession_tile.dart';
 import '../page_frame.dart';
 // utils
-import '../../utils/color_dict.dart';
-import '../../utils/image_dict.dart';
-import '../../utils/const_varibles.dart';
+import 'package:glass_ui/utils/constants.dart';
 
 class TimetablePage extends StatelessWidget {
   const TimetablePage({super.key});

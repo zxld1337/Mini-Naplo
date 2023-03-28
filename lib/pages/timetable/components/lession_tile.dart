@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors, must_be_immutable
 import 'package:flutter/material.dart';
 // consts
-import 'package:glass_ui/utils/const_varibles.dart';
+import 'package:glass_ui/utils/constants.dart';
 
 class LessionTile extends StatelessWidget {
   final String name;

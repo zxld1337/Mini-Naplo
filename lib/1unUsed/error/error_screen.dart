@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../utils/const_varibles.dart';
+import 'package:glass_ui/utils/constants.dart';
 
 class ErrorScreen extends StatelessWidget {
   const ErrorScreen({super.key});

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:glass_ui/utils/const_varibles.dart';
+import 'package:glass_ui/utils/constants.dart';
 
 class InfoTile extends StatelessWidget {
   final String hintText;
