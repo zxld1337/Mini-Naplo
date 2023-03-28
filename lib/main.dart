@@ -35,23 +35,3 @@ class App extends StatelessWidget {
     );
   }
 }
-// [TODOS]: https://trello.com/b/5rX3VRJx/school-project
-
-//   login test data
-//   const usr = '72384037525';
-//   const pwd = '2002-10-01';
-//   const ist = 'vbjnet';
-
-// user instance 
-// final user = await userInstance(usr, pwd, ist);
-
-// Órarend
-// List<TimeTable> timetable = await getTable(user);
-
-// Hiányzások
-// Absences abs = await getAbsences(user);
-
-// Tanuló info
-// Student stud = await getStudent(user);
-
-
