@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_declarations
 import 'package:flutter/material.dart';
 
-// 
+// TODO use this class
 class UIConst {
   // Color
   static const Color fontColor = Colors.white;

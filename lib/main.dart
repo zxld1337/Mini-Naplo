@@ -13,7 +13,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // init database
   await Hive.initFlutter();
-  await Hive.openBox("MainBox");
+  await Hive.openBox('MainBox');
   // Start App
   runApp(const App());
 }
@@ -23,7 +23,7 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final box = Hive.box("MainBox");
+    final box = Hive.box('MainBox');
     final String? user = box.get('username');
     
     return GetMaterialApp(
