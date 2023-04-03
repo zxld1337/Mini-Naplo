@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 class Student {
   // basic info [school, user]
   String? instName;
@@ -48,4 +49,9 @@ class Student {
   }
 
   static String formatDay(day) => day.length == 1 ? "0$day" : day;
+
+  @override
+  String toString() {
+    return 'Student(instName: $instName, instId: $instId, studentName: $studentName, birthPlace: $birthPlace, birthDate: $birthDate, birthYear: $birthYear, birthMonth: $birthMonth, birthDay: $birthDay, motherName: $motherName, address: $address, parents: $parents)';
+  }
 }
