@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 class Absences {
   String? allAbsences;
   String? verifiedAbsences;
@@ -38,5 +39,10 @@ class Absences {
       unVerifiedAbsences: abs.where((x) => x["IgazolasAllapota"] == "Igazolando").length.toString(),
       perSubject: absencesPerSubject,
     );
+  }
+
+  @override
+  String toString() {
+    return 'Absences(allAbsences: $allAbsences, verifiedAbsences: $verifiedAbsences, unVerifiedAbsences: $unVerifiedAbsences, perSubject: $perSubject)';
   }
 }
