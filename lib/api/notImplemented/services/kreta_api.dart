@@ -11,7 +11,7 @@ import 'fetch_helper.dart';
 import 'kreta_api_interface.dart';
 
 // for comments check 'kreta_api_interface.dart'
-class KretaAPI implements IKretaAPI {
+abstract class KretaAPI implements IKretaAPI {
   String user;
   String password;
   String institute;
