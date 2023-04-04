@@ -1,7 +1,7 @@
 // basic
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:glass_ui/utils/constants.dart';
+import 'package:glass_ui/utils/constants.dart' as cv;
 // services
 import 'package:glass_ui/client/user.dart';
 // routing
@@ -39,9 +39,14 @@ class LoginController extends GetxController {
     String password = passwordController.text;
 
     // assert problems && validate imput
-    if (!studentIsValid(username, password)) return;
+    if (!_studentIsValid(username, password)) return;
 
-    final user = User(username, password, ist);
+    final user = User(
+      username,
+      password,
+      cv.instituteCode,
+    );
+    
     await user.init();
     final loginSuccess = await user.login();
 
@@ -51,14 +56,14 @@ class LoginController extends GetxController {
     }
 
     buttonText.value = "Sikeres bejelentkezés";
-    await addStudentToDb(username, password, user.bearer.toMap());
+    await _addStudentToDb(username, password, user.bearer.toMap());
 
     // TODO has problems
     Get.parameters['relogin'] == null ? Get.offNamed(Routes.NAVIGATOR) : Get.back();
   }
 
   // validating inputs
-  bool studentIsValid(String user, String password) {
+  bool _studentIsValid(String user, String password) {
     if (user.isEmpty) {
       buttonText.value = "Üres Felhasználónév mező!";
       return false;
@@ -73,7 +78,7 @@ class LoginController extends GetxController {
   }
 
   // save valid user to database
-  Future<void> addStudentToDb(String usr, String pwd, Map brr) async {
+  Future<void> _addStudentToDb(String usr, String pwd, Map brr) async {
     await mainBox.put("username", usr);
     await mainBox.put("password", pwd);
     await mainBox.put("bearer", brr);

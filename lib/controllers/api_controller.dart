@@ -1,12 +1,14 @@
+// state manager
 import 'package:get/get.dart';
+// backend client
 import 'package:glass_ui/client/user.dart';
-import 'package:glass_ui/models/absences.dart';
-import 'package:glass_ui/models/grade.dart';
-import 'package:glass_ui/models/student.dart';
-import 'package:glass_ui/models/timetable.dart';
-import 'package:hive/hive.dart';
-import 'package:glass_ui/utils/constants.dart' as cv;
 import 'chart_controller.dart';
+// database
+import 'package:hive/hive.dart';
+// utils
+import 'package:glass_ui/models/models.dart';
+import 'package:glass_ui/utils/constants.dart' as cv;
+
 
 class ApiController extends GetxService {
   final timeTable = <TimeTable>[].obs;
@@ -30,12 +32,12 @@ class ApiController extends GetxService {
     final user = User(
       db.get('username'),
       db.get('password'),
-      cv.ist,
+      cv.instituteCode,
     );
 
     await user.init();
-    final loginSuccess = await user.login();
     
+    if (!(await user.login())) return;
 
     timeTable(await user.getTable());
     grades(await user.getEvaluations());
