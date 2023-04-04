@@ -52,6 +52,7 @@ dependencies:
   hive:
   # state/route manager  
   get: ^4.6.5
+  connectivity_plus: ^3.0.3
 
 
 
