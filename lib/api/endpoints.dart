@@ -1,5 +1,6 @@
 // ignore_for_file: constant_identifier_names
 
+
 class Kreta {
   static String base(String ist) => "https://$ist.ekreta.hu";
   

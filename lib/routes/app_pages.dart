@@ -40,14 +40,4 @@ class AppPages {
         return HomePage(key: Key("1"));
     }
   }
-
-  /*
-  static final List<Widget> pages = [
-    HomePage(key: Key("1")),
-    TimetablePage(key: Key("2")),
-    GradesPage(key: Key("3")),
-    AbsencesPage(key: Key("4")),
-    StudentPage(key: Key("5")),
-  ];
-  */
 }

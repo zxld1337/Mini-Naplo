@@ -1,4 +1,3 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:glass_ui/controllers/api_controller.dart';
@@ -38,7 +37,7 @@ class StudentPage extends StatelessWidget {
                     children: [
                       Text(
                         "${controller.student.value.studentName}",
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 30,
                           fontFamily: constFontFamily,
                           height: 1.2,
@@ -68,23 +67,23 @@ class StudentPage extends StatelessWidget {
                         color: Colors.redAccent.withOpacity(0.5),
                         shape: BoxShape.circle,
                       ),
-                      child: Icon(Icons.logout),
+                      child: const Icon(Icons.logout),
                     ),
                   )
                 ],
               ),
               Expanded(
                 child: SingleChildScrollView(
-                  physics: BouncingScrollPhysics(),
+                  physics: const BouncingScrollPhysics(),
                   child: Column(
                     children: [
-                      SizedBox(height: 30),
+                      const SizedBox(height: 30),
                       InfoTile(
                         hintText: "Intézmény",
                         data: "${controller.student.value.instName}",
                       ),
-                      SizedBox(height: 10),
-                      Text(
+                      const SizedBox(height: 10),
+                      const Text(
                         "Személyes adatok",
                         style: TextStyle(
                           fontSize: 20,
@@ -93,7 +92,7 @@ class StudentPage extends StatelessWidget {
                           color: constFontColor,
                         ),
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       InfoTile(
                         hintText: "Név",
                         data: "${controller.student.value.studentName}",
@@ -110,8 +109,8 @@ class StudentPage extends StatelessWidget {
                         hintText: "Lakcím",
                         data: "${controller.student.value.address![0]}",
                       ),
-                      SizedBox(height: 10),
-                      Text(
+                      const SizedBox(height: 10),
+                      const Text(
                         "Gondviselő",
                         style: TextStyle(
                           fontSize: 20,
@@ -120,7 +119,7 @@ class StudentPage extends StatelessWidget {
                           color: constFontColor,
                         ),
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       InfoTile(
                         hintText: "Neve",
                         data: "${controller.student.value.parents![0]['Nev']}", 

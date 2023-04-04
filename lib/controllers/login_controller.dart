@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:glass_ui/utils/constants.dart';
 // services
-import 'package:glass_ui/api/user.dart';
+import 'package:glass_ui/client/user.dart';
 // routing
 import 'package:glass_ui/routes/app_routes.dart';
 // hive database
@@ -35,15 +35,15 @@ class LoginController extends GetxController {
 
   // on Button Press
   void signUserIn(context) async {
-    String user = usernameController.text;
+    String username = usernameController.text;
     String password = passwordController.text;
 
     // assert problems && validate imput
-    if (!studentIsValid(user, password)) return;
+    if (!studentIsValid(username, password)) return;
 
-    User client = User(user, password, ist);
-    await client.api.getHeaders();
-    final bool loginSuccess = await client.api.login();
+    final user = User(username, password, ist);
+    await user.init();
+    final loginSuccess = await user.login();
 
     if (!loginSuccess) {
       buttonText.value = "Hibás Jelszó, vagy Felhasználónév";
@@ -51,7 +51,7 @@ class LoginController extends GetxController {
     }
 
     buttonText.value = "Sikeres bejelentkezés";
-    await addStudentToDb(user, password, client.api.bearer.toMap());
+    await addStudentToDb(username, password, user.bearer.toMap());
 
     // TODO has problems
     Get.parameters['relogin'] == null ? Get.offNamed(Routes.NAVIGATOR) : Get.back();

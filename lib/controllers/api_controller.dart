@@ -1,6 +1,5 @@
 import 'package:get/get.dart';
-import 'package:glass_ui/api/formater.dart';
-import 'package:glass_ui/api/user.dart';
+import 'package:glass_ui/client/user.dart';
 import 'package:glass_ui/models/absences.dart';
 import 'package:glass_ui/models/grade.dart';
 import 'package:glass_ui/models/student.dart';
@@ -16,32 +15,32 @@ class ApiController extends GetxService {
 
   final absence = Absences().obs;
   final student = Student().obs;
-  var user = User.new.obs;
+  final user = User.new.obs;
 
   final db = Hive.box('MainBox');
 
   @override
-  void onInit() async {
+  Future<void> onInit() async {
     super.onInit();
     await getData();
     getGps();
   }
 
-  Future getData() async {
+  Future<void> getData() async {
     final user = User(
       db.get('username'),
       db.get('password'),
       cv.ist,
     );
 
-    await user.api.getHeaders();
-    await user.api.login();
+    await user.init();
+    final loginSuccess = await user.login();
+    
 
-    timeTable.value = await Formater.getTable(user);
-    grades.value = await Formater.getEvaluations(user);
-
-    absence(await Formater.getAbsences(user));
-    student(await Formater.getStudent(user));
+    timeTable(await user.getTable());
+    grades(await user.getEvaluations());
+    absence(await user.getAbsences());
+    student(await user.getStudentInfo());
 
     Get.find<ChartController>().setData(grades);
   }
@@ -49,10 +48,10 @@ class ApiController extends GetxService {
   void getGps() {
     // Group by sub
     gps.value = Grade.getGradesPerSubject(grades.value);
-    // Sort by DESC
-    gps.value = Grade.sortByCustom(gps, "calculated");
     // Remove sub where 0
     gps.removeWhere((key, value) => value["calculated"] == 0);
     gps.removeWhere((key, value) => value["calculated"].isNaN);
+    // Sort by DESC
+    gps.value = Grade.sortByCustom(gps, "calculated");
   }
 }
