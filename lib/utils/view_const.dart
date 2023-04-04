@@ -35,4 +35,4 @@ const double constHorizontalPadding = 20;
 const String constSubjectIcon = "assets/3dicons/cube/cube-iso-clay.png";
 
 // VBJ institute_code
-const String ist = 'vbjnet';
+const String instituteCode = 'vbjnet';
