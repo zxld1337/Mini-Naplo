@@ -54,16 +54,16 @@ class GradesPage extends StatelessWidget {
             () => Expanded(
               child: ListView.builder(
                 physics: const BouncingScrollPhysics(),
-                itemCount: apiController.gps.value.length,
+                itemCount: apiController.gradesPerSubject.value.length,
                 shrinkWrap: true,
                 itemBuilder: (BuildContext context, int index) {
-                  final currentSubject = apiController.gps.value.keys.elementAt(index);
-                  final avgCalc = apiController.gps.value[currentSubject]["calculated"];
+                  final currentSubject = apiController.gradesPerSubject.value.keys.elementAt(index);
+                  final avgCalc = apiController.gradesPerSubject.value[currentSubject]["calculated"];
                   return GradeTile(
                     subject: currentSubject,
                     avg: avgCalc,
                     avgBgColor: gradeValueColor[avgCalc.round()]!,
-                    bRadius: chartController.getPadding(index, apiController.gps),
+                    bRadius: chartController.getPadding(index, apiController.gradesPerSubject),
                   );
                 },
               ),
