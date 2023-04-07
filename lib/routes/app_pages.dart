@@ -21,6 +21,7 @@ class AppPages {
     GetPage(
       name: Routes.NAVIGATOR,
       page: () => MainFrame(),
+      transition: Transition.cupertino,
     ),
   ];
 

@@ -9,9 +9,6 @@ import '../../utils/view_const.dart';
 import 'components/custom_navbar.dart';
 
 
-
-
-
 class MainFrame extends StatelessWidget {
   MainFrame({super.key});
 

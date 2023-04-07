@@ -22,19 +22,22 @@ class ApiService extends GetxService {
   final db = Hive.box('MainBox');
 
   get user => _user.value;
+  get bearerAsMap => _user.value.bearer.toMap();
 
   @override
   Future<void> onInit() async {
     super.onInit();
 
-    /*
-    if (await Get.find<NetworkService>().isOnline()) {
-      await getData();
-      getGps();
-    } else {
-      //TODO implement
-    }
-    */
+    if (!await Get.find<NetworkService>().isOnline()) return;
+    if (db.get('username') == null) return;
+
+    await createUser(
+      username: db.get('username'),
+      password: db.get('password'),
+      institute: cv.instituteCode,
+    );
+    
+    await initData();
   }
 
   // returns true if user created successfully
@@ -52,22 +55,14 @@ class ApiService extends GetxService {
     return (await user.login()) ? true : false;
   }
 
-  Future<void> getData() async {
-    _user(User(
-      user: db.get('username'),
-      password: db.get('password'),
-      institute: cv.instituteCode,
-    ));
-
-    await user.init();
-    await user.login();
-
+  Future<void> initData() async {
     timeTable(await user.getTable());
     grades(await user.getEvaluations());
     absence(await user.getAbsences());
     student(await user.getStudentInfo());
 
     Get.find<ChartController>().setData(grades);
+    getGps();
   }
 
   void getGps() {

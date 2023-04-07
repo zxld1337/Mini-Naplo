@@ -9,12 +9,12 @@ import 'package:glass_ui/services/network_service.dart';
 class InitialBinding implements Bindings {
   @override
   void dependencies() {
-    Get.put<NetworkService>(NetworkService(), permanent: true);
+    Get.put<NetworkService>(NetworkService());
     
-    Get.create(() => LoginController());
-    Get.lazyPut(() => ApiController());
+    Get.create<LoginController>(() => LoginController());
+    Get.lazyPut<ApiService>(() => ApiService());
 
-    Get.lazyPut(() => ChartController());
-    Get.lazyPut(() => FrameController());
+    Get.put<ChartController>(ChartController());
+    Get.lazyPut<FrameController>(() => FrameController());
   }
 }

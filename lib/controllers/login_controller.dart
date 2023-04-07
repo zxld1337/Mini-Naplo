@@ -63,7 +63,8 @@ class LoginController extends GetxController {
     }
 
     buttonText("Sikeres bejelentkezés");
-    await _addStudentToDb(username, password, apiService.user.bearer.toMap());
+    await apiService.initData();
+    await _addStudentToDb(username, password, apiService.bearerAsMap);
 
     // TODO when relogin set to mainPage
     if (Get.parameters['relogin'] == null) {
