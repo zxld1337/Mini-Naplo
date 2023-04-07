@@ -11,16 +11,16 @@ import 'package:glass_ui/models/models.dart';
 import 'package:glass_ui/utils/constants.dart' as cv;
 
 class ApiService extends GetxService {
+  // reactive variables
   final timeTable = <TimeTable>[].obs;
   final grades = <Grade>[].obs;
   final gradesPerSubject = <dynamic, dynamic>{}.obs;
-
   final absence = Absences().obs;
   final student = Student().obs;
   final _user = User().obs;
-
+  // db instance
   final db = Hive.box('MainBox');
-
+  // getters
   get user => _user.value;
   get bearerAsMap => _user.value.bearer.toMap();
 
@@ -28,6 +28,7 @@ class ApiService extends GetxService {
   Future<void> onInit() async {
     super.onInit();
 
+    // early returns for offline and null database 
     if (!await Get.find<NetworkService>().isOnline()) return;
     if (db.get('username') == null) return;
 
@@ -36,7 +37,7 @@ class ApiService extends GetxService {
       password: db.get('password'),
       institute: cv.instituteCode,
     );
-    
+
     await initData();
   }
 
