@@ -14,6 +14,7 @@ void main() async {
   // init database
   await Hive.initFlutter();
   await Hive.openBox('MainBox');
+  //await Hive.box('MainBox').clear();
   // Start App
   runApp(const App());
 }
@@ -25,7 +26,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     final box = Hive.box('MainBox');
     final String? user = box.get('username');
-    
+
     return GetMaterialApp(
       title: 'Mini Napló',
       debugShowCheckedModeBanner: false,
