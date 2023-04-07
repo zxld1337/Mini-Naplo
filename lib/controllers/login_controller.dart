@@ -1,6 +1,7 @@
 // basic
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:glass_ui/services/network_service.dart';
 import 'package:glass_ui/utils/constants.dart' as cv;
 // services
 import 'package:glass_ui/client/user.dart';
@@ -8,6 +9,8 @@ import 'package:glass_ui/client/user.dart';
 import 'package:glass_ui/routes/app_routes.dart';
 // hive database
 import 'package:hive_flutter/hive_flutter.dart';
+
+import 'frame_controller.dart';
 
 class LoginController extends GetxController {
   // ui vars
@@ -17,7 +20,7 @@ class LoginController extends GetxController {
   late final TextEditingController usernameController;
   late final TextEditingController passwordController;
   // db refrence
-  final mainBox = Hive.box('MainBox');
+  final mainBox = Hive.box("MainBox");
 
   @override
   void onInit() {
@@ -34,7 +37,12 @@ class LoginController extends GetxController {
   }
 
   // on Button Press
-  void signUserIn(context) async {
+  void signUserIn() async {
+    if (!Get.find<NetworkService>().hasConnection) {
+      buttonText("Nincsen internet!");
+      return;
+    }
+
     String username = usernameController.text;
     String password = passwordController.text;
 
@@ -46,34 +54,37 @@ class LoginController extends GetxController {
       password,
       cv.instituteCode,
     );
-    
+
     await user.init();
     final loginSuccess = await user.login();
 
     if (!loginSuccess) {
-      buttonText.value = "Hibás Jelszó, vagy Felhasználónév";
+      buttonText("Hibás Jelszó, vagy Felhasználónév");
       return;
     }
 
-    buttonText.value = "Sikeres bejelentkezés";
+    buttonText("Sikeres bejelentkezés");
     await _addStudentToDb(username, password, user.bearer.toMap());
 
-    // TODO has problems
-    Get.parameters['relogin'] == null ? Get.offNamed(Routes.NAVIGATOR) : Get.back();
+    // TODO when relogin set to mainPage
+    if (Get.parameters['relogin'] == null) {
+      Get.offNamed(Routes.NAVIGATOR);
+    } else {
+      //? Get.find<FrameController>().onBottomMenuTap(0); not working
+      Get.back();
+    }
   }
 
   // validating inputs
   bool _studentIsValid(String user, String password) {
     if (user.isEmpty) {
-      buttonText.value = "Üres Felhasználónév mező!";
+      buttonText("Üres Felhasználónév mező!");
       return false;
     }
-
     if (password.isEmpty) {
-      buttonText.value = "Üres Jelszó mező!";
+      buttonText("Üres Jelszó mező!");
       return false;
     }
-
     return true;
   }
 
@@ -83,4 +94,6 @@ class LoginController extends GetxController {
     await mainBox.put("password", pwd);
     await mainBox.put("bearer", brr);
   }
+
+  void resetButtonText(String text) => buttonText("Bejelentkezés");
 }
