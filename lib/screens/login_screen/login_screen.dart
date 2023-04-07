@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:glass_ui/utils/view_const.dart';
 import 'package:glass_ui/controllers/login_controller.dart';
 //components
-import 'components/custom_textfield.dart';
 import 'components/screen_background.dart';
 
 //TODO can inprove: [own TextField widget]
@@ -77,43 +76,48 @@ class LoginScreen extends StatelessWidget {
                   child: Column(
                     children: [
                       // Username TextField
-                      CustomTextField(
+                      TextField(
                         controller: loginController.usernameController,
-                        obscureText: false,
+                        onChanged: loginController.resetButtonText,
                         cursorColor: constFontColor,
-                        fontColor: constFontColor,
-                        fontFamily: constFontFamily,
-                        hintText: 'Oktatási azonosító',
-                        labelText: 'Felhasználónév',
-                        prefixIcon: Icons.person_outline_rounded,
-                        suffixIcon: null,
-                      ),
-
-                      // Password TextField
-                      /*
-                      Obx(
-                        () => CustomTextField(
-                          controller: loginController.passwordController,
-                          obscureText: loginController.isObscure.value,
-                          cursorColor: constFontColor,
-                          fontColor: constFontColor,
-                          fontFamily: constFontFamily,
-                          hintText: 'Születési dátum',
-                          labelText: 'Jelszó',
-                          prefixIcon: Icons.mail_outline_rounded,
-                          suffixIcon: IconButton(
-                            onPressed: () => loginController.isObscure.toggle(),
-                            icon: const Icon(Icons.remove_red_eye_outlined),
-                            color: loginController.isObscure.value
-                                ? constFontColor.withOpacity(0.6)
-                                : constFontColor,
+                        style: const TextStyle(color: constFontColor, fontFamily: constFontFamily),
+                        decoration: InputDecoration(
+                          hintText: 'Oktatási azonosító',
+                          hintStyle:
+                              TextStyle(fontSize: 12, color: constFontColor.withOpacity(0.2)),
+                          labelText: 'Felhasználónév',
+                          labelStyle: TextStyle(color: constFontColor.withOpacity(0.6)),
+                          filled: true,
+                          fillColor: constFontColor.withOpacity(0.1),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              width: 2,
+                              color: constFontColor.withOpacity(0.4),
+                            ),
+                            borderRadius: const BorderRadius.only(
+                              topLeft: Radius.circular(12),
+                              topRight: Radius.circular(12),
+                            ),
+                          ),
+                          focusedBorder: const OutlineInputBorder(
+                            borderSide: BorderSide(width: 2, color: constFontColor),
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(10.0),
+                              topRight: Radius.circular(10.0),
+                            ),
+                          ),
+                          prefixIcon: Icon(
+                            Icons.person_outline_rounded,
+                            color: constFontColor.withOpacity(0.6),
                           ),
                         ),
                       ),
-                      */
+
+                      // Password TextField
                       Obx(
                         () => TextField(
                           controller: loginController.passwordController,
+                          onChanged: loginController.resetButtonText,
                           cursorColor: constFontColor,
                           style:
                               const TextStyle(color: constFontColor, fontFamily: constFontFamily),
@@ -146,11 +150,12 @@ class LoginScreen extends StatelessWidget {
                               color: constFontColor.withOpacity(0.6),
                             ),
                             suffixIcon: IconButton(
-                                onPressed: () => loginController.isObscure.toggle(),
-                                icon: const Icon(Icons.remove_red_eye_outlined),
-                                color: loginController.isObscure.value
-                                    ? constFontColor.withOpacity(0.6)
-                                    : constFontColor),
+                              onPressed: () => loginController.isObscure.toggle(),
+                              icon: const Icon(Icons.remove_red_eye_outlined),
+                              color: loginController.isObscure.value
+                                  ? constFontColor.withOpacity(0.6)
+                                  : constFontColor,
+                            ),
                           ),
                         ),
                       ),
@@ -179,7 +184,7 @@ class LoginScreen extends StatelessWidget {
                       ),
                       child: Obx(
                         () => TextButton(
-                          onPressed: () => loginController.signUserIn(context),
+                          onPressed: () => loginController.signUserIn(),
                           child: Text(
                             loginController.buttonText.value,
                             style: const TextStyle(
