@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:glass_ui/controllers/api_controller.dart';
+import 'package:glass_ui/services/api_service.dart';
 import 'package:glass_ui/routes/app_routes.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 // component

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 // controllers
-import 'package:glass_ui/controllers/api_controller.dart';
+import 'package:glass_ui/services/api_service.dart';
 import 'package:glass_ui/controllers/chart_controller.dart';
 // components
 import 'package:glass_ui/pages/grades/components/stats_tile.dart';

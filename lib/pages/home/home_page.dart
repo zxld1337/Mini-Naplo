@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:glass_ui/controllers/api_controller.dart';
+import 'package:glass_ui/services/api_service.dart';
 import 'package:glass_ui/pages/home/components/eval_tile.dart';
 import 'package:glass_ui/utils/constants.dart';
 import '../page_frame.dart';

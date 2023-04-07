@@ -37,7 +37,7 @@ class MainFrame extends StatelessWidget {
             },
             
             duration: const Duration(milliseconds: 300),
-            child: AppPages.getPage(frameController.currentpageRoute),
+            child: AppPages.getPage(frameController.currentPageRoute),
           ),
         ),
       ),

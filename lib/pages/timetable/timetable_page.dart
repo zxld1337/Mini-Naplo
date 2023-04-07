@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:glass_ui/controllers/api_controller.dart';
+import 'package:glass_ui/services/api_service.dart';
 // components
 import 'components/lession_tile.dart';
 import '../page_frame.dart';
