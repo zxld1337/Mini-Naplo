@@ -7,9 +7,9 @@ import 'package:glass_ui/models/timetable.dart';
 import 'package:glass_ui/models/absences.dart';
 import 'package:glass_ui/models/student.dart';
 
-// for comments check 'user_interface.dart' 
+// for comments check 'user_interface.dart'
 class User extends KretaAPI implements IUser {
-  User(super.user, super.password, super.institute);
+  User({super.user, super.password, super.institute});
 
   @override
   Future<List<Grade>> getEvaluations() async {
@@ -38,7 +38,7 @@ class User extends KretaAPI implements IUser {
 
     return timeTable.map((e) => TimeTable.fromAPI(e)).toList();
   }
-  
+
   @override
   Future<Absences> getAbsences() async {
     return Absences.fromAPI(await fetchAbsences());

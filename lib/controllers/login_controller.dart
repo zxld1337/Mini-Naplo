@@ -1,6 +1,7 @@
 // basic
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:glass_ui/services/api_service.dart';
 import 'package:glass_ui/services/network_service.dart';
 import 'package:glass_ui/utils/constants.dart' as cv;
 // services
@@ -49,14 +50,12 @@ class LoginController extends GetxController {
     // assert problems && validate imput
     if (!_studentIsValid(username, password)) return;
 
-    final user = User(
-      username,
-      password,
-      cv.instituteCode,
+    final apiService = Get.find<ApiService>();
+    final loginSuccess = await apiService.createUser(
+      username: username,
+      password: password,
+      institute: cv.instituteCode,
     );
-
-    await user.init();
-    final loginSuccess = await user.login();
 
     if (!loginSuccess) {
       buttonText("Hibás Jelszó, vagy Felhasználónév");
@@ -64,7 +63,7 @@ class LoginController extends GetxController {
     }
 
     buttonText("Sikeres bejelentkezés");
-    await _addStudentToDb(username, password, user.bearer.toMap());
+    await _addStudentToDb(username, password, apiService.user.bearer.toMap());
 
     // TODO when relogin set to mainPage
     if (Get.parameters['relogin'] == null) {

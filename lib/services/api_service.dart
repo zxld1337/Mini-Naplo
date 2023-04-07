@@ -2,6 +2,7 @@
 import 'package:get/get.dart';
 // backend client
 import 'package:glass_ui/client/user.dart';
+import 'package:glass_ui/services/network_service.dart';
 import '../controllers/chart_controller.dart';
 // database
 import 'package:hive/hive.dart';
@@ -9,31 +10,54 @@ import 'package:hive/hive.dart';
 import 'package:glass_ui/models/models.dart';
 import 'package:glass_ui/utils/constants.dart' as cv;
 
-
-class ApiController extends GetxService {
+class ApiService extends GetxService {
   final timeTable = <TimeTable>[].obs;
   final grades = <Grade>[].obs;
-  var gradesPerSubject = <dynamic, dynamic>{}.obs;
+  final gradesPerSubject = <dynamic, dynamic>{}.obs;
 
   final absence = Absences().obs;
   final student = Student().obs;
-  final user = User.new.obs;
+  final _user = User().obs;
 
   final db = Hive.box('MainBox');
+
+  get user => _user.value;
 
   @override
   Future<void> onInit() async {
     super.onInit();
-    await getData();
-    getGps();
+
+    /*
+    if (await Get.find<NetworkService>().isOnline()) {
+      await getData();
+      getGps();
+    } else {
+      //TODO implement
+    }
+    */
+  }
+
+  // returns true if user created successfully
+  Future<bool> createUser({
+    required String username,
+    required String password,
+    required String institute,
+  }) async {
+    _user(User(
+      user: username,
+      password: password,
+      institute: cv.instituteCode,
+    ));
+    await user.init();
+    return (await user.login()) ? true : false;
   }
 
   Future<void> getData() async {
-    final user = User(
-      db.get('username'),
-      db.get('password'),
-      cv.instituteCode,
-    );
+    _user(User(
+      user: db.get('username'),
+      password: db.get('password'),
+      institute: cv.instituteCode,
+    ));
 
     await user.init();
     await user.login();

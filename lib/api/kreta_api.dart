@@ -12,25 +12,25 @@ import 'kreta_api_interface.dart';
 
 // for comments check 'kreta_api_interface.dart'
 abstract class KretaAPI implements IKretaAPI {
-  String user;
-  String password;
-  String institute;
+  String? user;
+  String? password;
+  String? institute;
   late Bearer bearer;
   late Map<String, String> headers;
   late Map<String, String> reqHeaders;
 
-  KretaAPI(
+  KretaAPI({
     this.user,
     this.password,
     this.institute,
-  );
+  });
 
   @override
   Future<void> init() async {
     final nonce = (await http.get(Uri.parse(Kreta.IDP + KretaEndpoints.nonce))).body;
 
     List<int> key = [98, 97, 83, 115, 120, 79, 119, 108, 85, 49, 106, 77];
-    List<int> messageBytes = utf8.encode(institute.toUpperCase() + nonce + user.toUpperCase());
+    List<int> messageBytes = utf8.encode(institute!.toUpperCase() + nonce + user!.toUpperCase());
     Hmac hmac = Hmac(sha512, key);
 
     Digest dig = hmac.convert(messageBytes);
@@ -76,7 +76,7 @@ abstract class KretaAPI implements IKretaAPI {
   @override
   Future<List> fetchEvaluations() async {
     final response = await http.get(
-      Uri.parse(Kreta.base(institute) + KretaEndpoints.evaluations),
+      Uri.parse(Kreta.base(institute!) + KretaEndpoints.evaluations),
       headers: reqHeaders,
     );
     return jsonDecode(response.body);
@@ -87,7 +87,7 @@ abstract class KretaAPI implements IKretaAPI {
     if (fromDate == "" || toDate == "") return "missing args" as List;
 
     final uri = Uri.parse(
-      Kreta.base(institute) + KretaEndpoints.timetable,
+      Kreta.base(institute!) + KretaEndpoints.timetable,
     ).replace(queryParameters: {
       "datumTol": fromDate,
       "datumIg": toDate,
@@ -100,7 +100,7 @@ abstract class KretaAPI implements IKretaAPI {
   @override
   Future<List> fetchAbsences() async {
     final response = await http.get(
-      Uri.parse(Kreta.base(institute) + KretaEndpoints.absences),
+      Uri.parse(Kreta.base(institute!) + KretaEndpoints.absences),
       headers: reqHeaders,
     );
     return jsonDecode(response.body);
@@ -109,7 +109,7 @@ abstract class KretaAPI implements IKretaAPI {
   @override
   Future<Map<String, dynamic>> fetchStudentInfo() async {
     final response = await http.get(
-      Uri.parse(Kreta.base(institute) + KretaEndpoints.student),
+      Uri.parse(Kreta.base(institute!) + KretaEndpoints.student),
       headers: reqHeaders,
     );
     return jsonDecode(response.body);
