@@ -56,7 +56,7 @@ class TimetablePage extends StatelessWidget {
 
           // lession tile
           Expanded(
-            child: GetX<ApiController>(
+            child: GetX<ApiService>(
               builder: (controller) => ListView.builder(
                 physics: BouncingScrollPhysics(),
                 itemCount: controller.timeTable.length,

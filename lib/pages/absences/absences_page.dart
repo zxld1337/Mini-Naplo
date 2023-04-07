@@ -14,7 +14,7 @@ class AbsencesPage extends StatelessWidget {
   AbsencesPage({super.key});
 
   static const double _opacity = 0.6;
-  final apiController = Get.find<ApiController>();
+  final apiService = Get.find<ApiService>();
 
   @override
   Widget build(BuildContext context) {
@@ -45,13 +45,13 @@ class AbsencesPage extends StatelessWidget {
                   bgColor: const Color.fromARGB(255, 59, 225, 59).withOpacity(_opacity),
                   text1: "Igazolt",
                   text2: "hiányzások",
-                  hours: "${apiController.absence.value.verifiedAbsences}",
+                  hours: "${apiService.absence.value.verifiedAbsences}",
                 ),
                 SquareTile(
                   bgColor: const Color.fromARGB(255, 255, 59, 59).withOpacity(_opacity),
                   text1: "Igazolandó",
                   text2: "hiányzások",
-                  hours: "${apiController.absence.value.unVerifiedAbsences}",
+                  hours: "${apiService.absence.value.unVerifiedAbsences}",
                 ),
               ],
             ),
@@ -71,18 +71,18 @@ class AbsencesPage extends StatelessWidget {
             () => Expanded(
               child: ListView.builder(
                 physics: const BouncingScrollPhysics(),
-                itemCount: apiController.absence.value.perSubject!.length,
+                itemCount: apiService.absence.value.perSubject!.length,
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: const EdgeInsets.only(bottom: 8),
                     child: AbsencesTile(
-                      name: apiController.absence.value.perSubject!.keys.elementAt(index),
-                      hours: apiController.absence.value.perSubject!.values
+                      name: apiService.absence.value.perSubject!.keys.elementAt(index),
+                      hours: apiService.absence.value.perSubject!.values
                           .elementAt(index)
                           .toString(),
                       bgColor: constBgColor,
                       icon: subjectImg[Absences.nameConv[
-                              apiController.absence.value.perSubject!.keys.elementAt(index)]] ??
+                              apiService.absence.value.perSubject!.keys.elementAt(index)]] ??
                           constSubjectIcon,
                     ),
                   );

@@ -28,20 +28,26 @@ class NetworkService extends GetxService {
   }
 
   void _showOfflineSnackBar() {
-    Get.snackbar('', '',
-        titleText: const Text(
-          'INTERNET PROBLÉMA',
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-        ),
-        messageText: const Text('NINCSEN INTERNET KAPCSOLAT!'),
-        borderRadius: 16,
-        isDismissible: false,
-        duration: const Duration(days: 1),
-        backgroundColor: Colors.red[400]!.withOpacity(0.6),
-        shouldIconPulse: true,
-        icon: Icon(Icons.wifi_off, color: Colors.black.withOpacity(0.8), size: 35),
-        margin: const EdgeInsets.symmetric(vertical: 24, horizontal: 20),
-        snackStyle: SnackStyle.FLOATING,
-        padding: const EdgeInsets.only(left: 26, top: 16, bottom: 16));
+    Get.snackbar(
+      '',
+      '',
+      titleText: const Text(
+        'INTERNET PROBLÉMA',
+        style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+      ),
+      messageText: const Text('NINCSEN INTERNET KAPCSOLAT!'),
+      borderRadius: 16,
+      isDismissible: false,
+      duration: const Duration(days: 1),
+      backgroundColor: Colors.red[400]!.withOpacity(0.6),
+      shouldIconPulse: true,
+      icon: Icon(Icons.wifi_off, color: Colors.black.withOpacity(0.8), size: 35),
+      margin: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
+      snackStyle: SnackStyle.FLOATING,
+      padding: const EdgeInsets.only(left: 26, top: 16, bottom: 16),
+    );
   }
+
+  // returns true if online
+  Future<bool> isOnline() async => await _connection.checkConnectivity() != ConnectivityResult.none;
 }

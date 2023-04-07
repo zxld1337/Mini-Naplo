@@ -13,7 +13,7 @@ import 'package:glass_ui/utils/constants.dart';
 class GradesPage extends StatelessWidget {
   GradesPage({super.key});
 
-  final apiController = Get.find<ApiController>();
+  final apiService = Get.find<ApiService>();
   final chartController = Get.find<ChartController>();
 
   @override
@@ -54,16 +54,16 @@ class GradesPage extends StatelessWidget {
             () => Expanded(
               child: ListView.builder(
                 physics: const BouncingScrollPhysics(),
-                itemCount: apiController.gradesPerSubject.value.length,
+                itemCount: apiService.gradesPerSubject.value.length,
                 shrinkWrap: true,
                 itemBuilder: (BuildContext context, int index) {
-                  final currentSubject = apiController.gradesPerSubject.value.keys.elementAt(index);
-                  final avgCalc = apiController.gradesPerSubject.value[currentSubject]["calculated"];
+                  final currentSubject = apiService.gradesPerSubject.value.keys.elementAt(index);
+                  final avgCalc = apiService.gradesPerSubject.value[currentSubject]["calculated"];
                   return GradeTile(
                     subject: currentSubject,
                     avg: avgCalc,
                     avgBgColor: gradeValueColor[avgCalc.round()]!,
-                    bRadius: chartController.getPadding(index, apiController.gradesPerSubject),
+                    bRadius: chartController.getPadding(index, apiService.gradesPerSubject),
                   );
                 },
               ),

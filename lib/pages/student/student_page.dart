@@ -23,7 +23,7 @@ class StudentPage extends StatelessWidget {
       bgAsset: "assets/student/shapes_purple.riv",
       bgImage: Container(),
       bottom: false,
-      child: GetX<ApiController>(
+      child: GetX<ApiService>(
         builder: (controller) {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,

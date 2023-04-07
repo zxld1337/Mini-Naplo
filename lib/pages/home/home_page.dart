@@ -39,7 +39,7 @@ class HomePage extends StatelessWidget {
 
           const SizedBox(height: 10),
           Expanded(
-            child: GetX<ApiController>(
+            child: GetX<ApiService>(
               builder: (controller) {
                 return ListView.builder(
                   physics: const BouncingScrollPhysics(),
