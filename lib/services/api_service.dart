@@ -2,7 +2,7 @@
 import 'package:get/get.dart';
 // backend client
 import 'package:glass_ui/client/user.dart';
-import 'chart_controller.dart';
+import '../controllers/chart_controller.dart';
 // database
 import 'package:hive/hive.dart';
 // utils
