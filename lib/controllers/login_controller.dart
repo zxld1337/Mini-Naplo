@@ -32,8 +32,8 @@ class LoginController extends GetxController {
 
   @override
   void onClose() {
-    usernameController.dispose();
-    passwordController.dispose();
+    //usernameController.dispose();
+    //passwordController.dispose();
     super.onClose();
   }
 
@@ -44,8 +44,8 @@ class LoginController extends GetxController {
       return;
     }
 
-    String username = usernameController.text;
-    String password = passwordController.text;
+    final String username = usernameController.text;
+    final String password = passwordController.text;
 
     // assert problems && validate imput
     if (!_studentIsValid(username, password)) return;
