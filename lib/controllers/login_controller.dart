@@ -3,16 +3,16 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:glass_ui/services/api_service.dart';
 import 'package:glass_ui/services/network_service.dart';
-import 'package:glass_ui/utils/constants.dart' as cv;
+import 'package:glass_ui/constants/constants.dart' as cv;
 // services
 import 'package:glass_ui/client/user.dart';
 // routing
 import 'package:glass_ui/routes/app_routes.dart';
 // hive database
 import 'package:hive_flutter/hive_flutter.dart';
-
-import 'frame_controller.dart';
-
+// for relogin page set
+import 'frame_controller.dart'; 
+  
 class LoginController extends GetxController {
   // ui vars
   final buttonText = "Bejelentkezés".obs;
@@ -32,8 +32,8 @@ class LoginController extends GetxController {
 
   @override
   void onClose() {
-    //usernameController.dispose();
-    //passwordController.dispose();
+    usernameController.dispose();
+    passwordController.dispose();
     super.onClose();
   }
 
