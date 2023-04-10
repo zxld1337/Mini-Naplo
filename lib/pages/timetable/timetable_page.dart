@@ -6,7 +6,7 @@ import 'package:glass_ui/services/api_service.dart';
 import 'components/lession_tile.dart';
 import '../page_frame.dart';
 // utils
-import 'package:glass_ui/utils/constants.dart';
+import 'package:glass_ui/constants/constants.dart';
 
 class TimetablePage extends StatelessWidget {
   const TimetablePage({super.key});
@@ -17,11 +17,11 @@ class TimetablePage extends StatelessWidget {
       width: MediaQuery.of(context).size.width * 1.7,
       bottom: 200,
       left: 100,
-      child: Image.asset("assets/Backgrounds/Spline.png"),
+      child: Image.asset(timetableBgImage),
     );
 
     return PageFrame(
-      bgAsset: "assets/RiveAssets/shapes.riv",
+      bgAsset: timetableBgRive,
       bgImage: bgImage,
       bottom: true,
       child: Column(

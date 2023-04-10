@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:glass_ui/controllers/frame_controller.dart';
-import '../../../utils/view_const.dart';
+import '../../../constants/view_const.dart';
 import '../helpers/navbar_items.dart';
 // rive imports
 import 'package:rive/rive.dart';
@@ -23,7 +23,7 @@ class CustomNavbar extends StatelessWidget {
         bottom: 4,
       ),
       decoration: BoxDecoration(
-        color: constBgColor.withOpacity(0.98), //constFontColor.withOpacity(0.05),
+        color: constBgColor.withOpacity(0.98), 
         borderRadius: BorderRadius.circular(16),
       ),
       child: Row(

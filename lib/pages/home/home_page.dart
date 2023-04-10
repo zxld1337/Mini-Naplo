@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:glass_ui/services/api_service.dart';
 import 'package:glass_ui/pages/home/components/eval_tile.dart';
-import 'package:glass_ui/utils/constants.dart';
+import 'package:glass_ui/constants/constants.dart';
 import '../page_frame.dart';
 
 class HomePage extends StatelessWidget {
@@ -11,7 +11,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PageFrame(
-      bgAsset: "assets/student/shapes_purple.riv",
+      bgAsset: constBgRive,
       bgImage: Container(),
       bottom: false,
       child: Column(

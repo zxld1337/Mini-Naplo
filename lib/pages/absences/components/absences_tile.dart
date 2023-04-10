@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 // utils
-import 'package:glass_ui/utils/constants.dart';
+import 'package:glass_ui/constants/constants.dart';
 
 class AbsencesTile extends StatelessWidget {
   final String name;

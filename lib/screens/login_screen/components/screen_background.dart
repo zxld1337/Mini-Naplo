@@ -1,5 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:glass_ui/constants/view_const.dart';
+
 
 class ScreenBackground extends StatelessWidget {
   const ScreenBackground({
@@ -18,7 +20,7 @@ class ScreenBackground extends StatelessWidget {
             child: SizedBox(
               width: double.infinity,
               child: Image.asset(
-                "assets/login/ai_bg_mini.png",
+                loginBodyImage,
                 fit: BoxFit.fitWidth,
               ),
             ),

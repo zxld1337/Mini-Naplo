@@ -8,7 +8,7 @@ import 'package:glass_ui/pages/grades/components/stats_tile.dart';
 import 'package:glass_ui/pages/page_frame.dart';
 import 'components/grade_tile.dart';
 //utils
-import 'package:glass_ui/utils/constants.dart';
+import 'package:glass_ui/constants/constants.dart';
 
 class GradesPage extends StatelessWidget {
   GradesPage({super.key});
@@ -19,7 +19,7 @@ class GradesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PageFrame(
-      bgAsset: "assets/student/shapes_purple.riv",
+      bgAsset: constBgRive,
       bgImage: Container(),
       bottom: false,
       child: Column(

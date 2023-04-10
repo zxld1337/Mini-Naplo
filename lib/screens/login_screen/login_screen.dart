@@ -2,7 +2,7 @@ import 'dart:ui';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 // my libs
-import 'package:glass_ui/utils/view_const.dart';
+import 'package:glass_ui/constants/view_const.dart';
 import 'package:glass_ui/controllers/login_controller.dart';
 //components
 import 'components/screen_background.dart';
@@ -45,7 +45,7 @@ class LoginScreen extends StatelessWidget {
                   width: double.infinity,
                   height: 240,
                   child: Image.asset(
-                    "assets/login/ai_header1_wide.png",
+                    loginHeader,
                     fit: BoxFit.fitWidth,
                   ),
                 ),

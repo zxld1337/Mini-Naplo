@@ -1,37 +1,38 @@
+import 'package:glass_ui/constants/view_const.dart';
 import 'package:glass_ui/routes/app_routes.dart';
 import 'rive_asset.dart';
 
 List<RiveAsset> bottomNavs = [
   RiveAsset(
-    "assets/RiveAssets/icons.riv",
+    navbarIcons,
     artboard: "HOME",
     stateMachineName: "HOME_interactivity",
     title: "home",
     page: Routes.HOME,
   ),
   RiveAsset(
-    "assets/RiveAssets/icons.riv",
+    navbarIcons,
     artboard: "TIMER",
     stateMachineName: "TIMER_Interactivity",
     title: "lessions",
     page: Routes.TIMETABLE,
   ),
   RiveAsset(
-    "assets/RiveAssets/icons.riv",
+    navbarIcons,
     artboard: "LIKE/STAR",
     stateMachineName: "STAR_Interactivity",
     title: "grades",
     page: Routes.GRADES,
   ),
   RiveAsset(
-    "assets/RiveAssets/icons.riv",
+    navbarIcons,
     artboard: "BELL",
     stateMachineName: "BELL_Interactivity",
     title: "absences",
     page: Routes.ABSENCES,
   ),
   RiveAsset(
-    "assets/RiveAssets/icons.riv",
+    navbarIcons,
     artboard: "USER",
     stateMachineName: "USER_Interactivity",
     title: "userinfo",

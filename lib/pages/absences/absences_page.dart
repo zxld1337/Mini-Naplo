@@ -8,7 +8,7 @@ import '../page_frame.dart';
 import 'components/absences_tile.dart';
 import 'components/square_tile.dart';
 // utils
-import 'package:glass_ui/utils/constants.dart';
+import 'package:glass_ui/constants/constants.dart';
 
 class AbsencesPage extends StatelessWidget {
   AbsencesPage({super.key});
@@ -19,7 +19,7 @@ class AbsencesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PageFrame(
-      bgAsset: "assets/student/shapes_purple.riv",
+      bgAsset: constBgRive,
       bgImage: Container(),
       bottom: false,
       child: Column(

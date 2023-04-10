@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 import 'package:glass_ui/pages/grades/models/value_count.dart';
-import 'package:glass_ui/utils/constants.dart';
+import 'package:glass_ui/constants/constants.dart';
 
 class StatsTile extends StatelessWidget {
   final List<ValueCount> valueData;
