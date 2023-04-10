@@ -1,6 +1,7 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mini_naplo/services/controllers/api_service.dart';
 
 class NetworkService extends GetxService {
   final Connectivity _connection = Connectivity();
@@ -15,7 +16,7 @@ class NetworkService extends GetxService {
     _updateConnection(await _connection.checkConnectivity());
   }
 
-  void _updateConnection(ConnectivityResult conResult) {
+  void _updateConnection(ConnectivityResult conResult) async {
     if (conResult == ConnectivityResult.none) {
       _hasConnection.value = false;
       _showOfflineSnackBar();
@@ -23,6 +24,10 @@ class NetworkService extends GetxService {
       if (Get.isSnackbarOpen) {
         _hasConnection.value = true;
         Get.closeCurrentSnackbar();
+        
+        if (!Get.find<ApiService>().isDataLoaded.value) {
+          await Get.find<ApiService>().onInit();
+        }
       }
     }
   }

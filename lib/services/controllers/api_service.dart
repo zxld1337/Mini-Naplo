@@ -19,6 +19,7 @@ class ApiService extends GetxService {
   final absence = Absences().obs;
   final student = Student().obs;
   final _user = User().obs;
+  final isDataLoaded = false.obs;
   // db instance
   final db = Hive.box('MainBox');
 
@@ -51,6 +52,7 @@ class ApiService extends GetxService {
       institute: cv.instituteCode,
     );
     await initData();
+    isDataLoaded(true);
 
     Navigator.of(Get.overlayContext!).pop();
   }
@@ -68,6 +70,13 @@ class ApiService extends GetxService {
     ));
     await user.init();
     return (await user.login()) ? true : false;
+  }
+
+  Future<void> refreshData() async {
+    if (!await Get.find<NetworkService>().isOnline()) return;
+
+    await user.refreshBearer();
+    await initData();
   }
 
   Future<void> initData() async {
