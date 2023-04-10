@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 // utils
 import 'dart:ui';
 import 'package:rive/rive.dart';
-import 'package:glass_ui/constants/constants.dart';
+import 'package:mini_naplo/constants/constants.dart';
 
 
 class PageFrame extends StatelessWidget {

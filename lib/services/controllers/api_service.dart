@@ -2,14 +2,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 // backend client
-import 'package:glass_ui/services/client/user.dart';
-import 'package:glass_ui/services/controllers/network_service.dart';
+import 'package:mini_naplo/services/client/user.dart';
+import 'package:mini_naplo/services/controllers/network_service.dart';
 import 'chart_controller.dart';
 // database
 import 'package:hive/hive.dart';
 // utils
-import 'package:glass_ui/services/models/models.dart';
-import 'package:glass_ui/constants/constants.dart' as cv;
+import 'package:mini_naplo/services/models/models.dart';
+import 'package:mini_naplo/constants/constants.dart' as cv;
 
 class ApiService extends GetxService {
   // reactive variables

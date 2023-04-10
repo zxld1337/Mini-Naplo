@@ -1,4 +1,4 @@
-package com.example.glass_ui
+package com.example.mini_naplo
 
 import io.flutter.embedding.android.FlutterActivity
 

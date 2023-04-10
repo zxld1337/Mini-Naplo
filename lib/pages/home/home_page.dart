@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:glass_ui/services/controllers/api_service.dart';
-import 'package:glass_ui/pages/home/components/eval_tile.dart';
-import 'package:glass_ui/constants/constants.dart';
+import 'package:mini_naplo/services/controllers/api_service.dart';
+import 'package:mini_naplo/pages/home/components/eval_tile.dart';
+import 'package:mini_naplo/constants/constants.dart';
 import '../page_frame.dart';
 
 class HomePage extends StatelessWidget {

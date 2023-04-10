@@ -1,8 +1,8 @@
 // models
-import 'package:glass_ui/services/models/grade.dart';
-import 'package:glass_ui/services/models/timetable.dart';
-import 'package:glass_ui/services/models/absences.dart';
-import 'package:glass_ui/services/models/student.dart';
+import 'package:mini_naplo/services/models/grade.dart';
+import 'package:mini_naplo/services/models/timetable.dart';
+import 'package:mini_naplo/services/models/absences.dart';
+import 'package:mini_naplo/services/models/student.dart';
 
 // formats fetched json and returns data models
 abstract class IUser {

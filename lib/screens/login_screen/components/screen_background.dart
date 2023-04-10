@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:glass_ui/constants/view_const.dart';
+import 'package:mini_naplo/constants/view_const.dart';
 
 
 class ScreenBackground extends StatelessWidget {

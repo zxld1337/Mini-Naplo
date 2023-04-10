@@ -1,5 +1,5 @@
-import 'package:glass_ui/constants/view_const.dart';
-import 'package:glass_ui/routes/app_routes.dart';
+import 'package:mini_naplo/constants/view_const.dart';
+import 'package:mini_naplo/routes/app_routes.dart';
 import 'rive_asset.dart';
 
 List<RiveAsset> bottomNavs = [

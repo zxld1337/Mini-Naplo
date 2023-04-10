@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:glass_ui/services/controllers/api_service.dart';
-import 'package:glass_ui/routes/app_routes.dart';
+import 'package:mini_naplo/services/controllers/api_service.dart';
+import 'package:mini_naplo/routes/app_routes.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 // component
 import 'components/info_tile.dart';
 import '../page_frame.dart';
-import 'package:glass_ui/constants/constants.dart';
+import 'package:mini_naplo/constants/constants.dart';
 
 class StudentPage extends StatelessWidget {
   const StudentPage({super.key});

@@ -1,13 +1,13 @@
 // basic
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:glass_ui/services/controllers/api_service.dart';
-import 'package:glass_ui/services/controllers/network_service.dart';
-import 'package:glass_ui/constants/constants.dart' as cv;
+import 'package:mini_naplo/services/controllers/api_service.dart';
+import 'package:mini_naplo/services/controllers/network_service.dart';
+import 'package:mini_naplo/constants/constants.dart' as cv;
 // services
-import 'package:glass_ui/services/client/user.dart';
+import 'package:mini_naplo/services/client/user.dart';
 // routing
-import 'package:glass_ui/routes/app_routes.dart';
+import 'package:mini_naplo/routes/app_routes.dart';
 // hive database
 import 'package:hive_flutter/hive_flutter.dart';
 // for relogin page set

@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'bindings/initail_binding.dart';
 // routes
-import 'package:glass_ui/routes/app_pages.dart';
-import 'package:glass_ui/routes/app_routes.dart';
+import 'package:mini_naplo/routes/app_pages.dart';
+import 'package:mini_naplo/routes/app_routes.dart';
 // database
 import 'package:hive_flutter/hive_flutter.dart';
 

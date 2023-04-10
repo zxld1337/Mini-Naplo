@@ -1,12 +1,12 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:glass_ui/services/controllers/api_service.dart';
+import 'package:mini_naplo/services/controllers/api_service.dart';
 // components
 import 'components/lession_tile.dart';
 import '../page_frame.dart';
 // utils
-import 'package:glass_ui/constants/constants.dart';
+import 'package:mini_naplo/constants/constants.dart';
 
 class TimetablePage extends StatelessWidget {
   const TimetablePage({super.key});

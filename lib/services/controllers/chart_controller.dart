@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
-import 'package:glass_ui/services/models/grade.dart';
-import 'package:glass_ui/pages/grades/models/value_count.dart';
+import 'package:mini_naplo/services/models/grade.dart';
+import 'package:mini_naplo/pages/grades/models/value_count.dart';
 import 'package:flutter/material.dart';
-import 'package:glass_ui/constants/constants.dart';
+import 'package:mini_naplo/constants/constants.dart';
 
 class ChartController extends GetxController {
   final valueData = <ValueCount>[].obs;

@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:glass_ui/constants/constants.dart';
+import 'package:mini_naplo/constants/constants.dart';
 
 class GradeTile extends StatelessWidget {
   final String subject;

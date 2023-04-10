@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'app_routes.dart';
 // screens
-import 'package:glass_ui/screens/login_screen/login_screen.dart';
-import 'package:glass_ui/screens/main_screen/main_screen.dart';
+import 'package:mini_naplo/screens/login_screen/login_screen.dart';
+import 'package:mini_naplo/screens/main_screen/main_screen.dart';
 // pages
-import 'package:glass_ui/pages/absences/absences_page.dart';
-import 'package:glass_ui/pages/home/home_page.dart';
-import 'package:glass_ui/pages/grades/grades_page.dart';
-import 'package:glass_ui/pages/student/student_page.dart';
-import 'package:glass_ui/pages/timetable/timetable_page.dart';
+import 'package:mini_naplo/pages/absences/absences_page.dart';
+import 'package:mini_naplo/pages/home/home_page.dart';
+import 'package:mini_naplo/pages/grades/grades_page.dart';
+import 'package:mini_naplo/pages/student/student_page.dart';
+import 'package:mini_naplo/pages/timetable/timetable_page.dart';
 
 class AppPages {
   static final routes = [

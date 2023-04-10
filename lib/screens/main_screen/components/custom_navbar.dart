@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:glass_ui/services/controllers/frame_controller.dart';
+import 'package:mini_naplo/services/controllers/frame_controller.dart';
 import '../../../constants/view_const.dart';
 import '../helpers/navbar_items.dart';
 // rive imports

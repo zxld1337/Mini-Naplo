@@ -1,4 +1,4 @@
-import 'package:glass_ui/screens/main_screen/helpers/navbar_items.dart';
+import 'package:mini_naplo/screens/main_screen/helpers/navbar_items.dart';
 import 'package:get/get.dart';
 
 class FrameController extends GetxController {

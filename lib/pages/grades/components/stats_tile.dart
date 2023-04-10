@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-import 'package:glass_ui/pages/grades/models/value_count.dart';
-import 'package:glass_ui/constants/constants.dart';
+import 'package:mini_naplo/pages/grades/models/value_count.dart';
+import 'package:mini_naplo/constants/constants.dart';
 
 class StatsTile extends StatelessWidget {
   final List<ValueCount> valueData;

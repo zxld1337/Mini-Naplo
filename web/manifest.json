@@ -1,6 +1,6 @@
 {
-    "name": "glass_ui",
-    "short_name": "glass_ui",
+    "name": "mini_naplo",
+    "short_name": "mini_naplo",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

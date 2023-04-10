@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 // controllers
-import 'package:glass_ui/services/controllers/api_service.dart';
-import 'package:glass_ui/services/controllers/chart_controller.dart';
+import 'package:mini_naplo/services/controllers/api_service.dart';
+import 'package:mini_naplo/services/controllers/chart_controller.dart';
 // components
-import 'package:glass_ui/pages/grades/components/stats_tile.dart';
-import 'package:glass_ui/pages/page_frame.dart';
+import 'package:mini_naplo/pages/grades/components/stats_tile.dart';
+import 'package:mini_naplo/pages/page_frame.dart';
 import 'components/grade_tile.dart';
 //utils
-import 'package:glass_ui/constants/constants.dart';
+import 'package:mini_naplo/constants/constants.dart';
 
 class GradesPage extends StatelessWidget {
   GradesPage({super.key});
