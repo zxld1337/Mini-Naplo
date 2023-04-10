@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 // models
-import '../../services/api_service.dart';
-import '../../models/absences.dart';
+import '../../services/controllers/api_service.dart';
+import '../../services/models/absences.dart';
 // components
 import '../page_frame.dart';
 import 'components/absences_tile.dart';

@@ -2,13 +2,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 // backend client
-import 'package:glass_ui/client/user.dart';
-import 'package:glass_ui/services/network_service.dart';
-import '../controllers/chart_controller.dart';
+import 'package:glass_ui/services/client/user.dart';
+import 'package:glass_ui/services/controllers/network_service.dart';
+import 'chart_controller.dart';
 // database
 import 'package:hive/hive.dart';
 // utils
-import 'package:glass_ui/models/models.dart';
+import 'package:glass_ui/services/models/models.dart';
 import 'package:glass_ui/constants/constants.dart' as cv;
 
 class ApiService extends GetxService {

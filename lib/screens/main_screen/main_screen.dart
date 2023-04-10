@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 // components
 import 'package:glass_ui/routes/app_pages.dart';
-import '../../controllers/frame_controller.dart';
+import '../../services/controllers/frame_controller.dart';
 import '../../constants/view_const.dart';
 import 'components/custom_navbar.dart';
 

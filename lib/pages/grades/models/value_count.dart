@@ -1,4 +1,4 @@
-import '../../../models/grade.dart';
+import '../../../services/models/grade.dart';
 
 class ValueCount {
   final String value;

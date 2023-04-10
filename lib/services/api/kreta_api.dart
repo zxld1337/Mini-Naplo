@@ -3,10 +3,10 @@ import 'package:http/http.dart' as http;
 import 'package:crypto/crypto.dart';
 import 'dart:convert';
 // bearer model
-import 'package:glass_ui/models/bearer.dart';
+import 'package:glass_ui/services/models/bearer.dart';
 // helpers
-import 'endpoints.dart';
-import 'fetch_helper.dart';
+import 'endpoints/endpoints.dart';
+import 'helpers/fetch_helper.dart';
 // interface
 import 'kreta_api_interface.dart';
 

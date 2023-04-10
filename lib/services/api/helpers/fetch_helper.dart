@@ -1,4 +1,4 @@
-import 'endpoints.dart';
+import '../endpoints/endpoints.dart';
 
 // holds headers for different types of requests
 class FetchHelper {

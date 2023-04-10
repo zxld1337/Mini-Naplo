@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:glass_ui/models/grade.dart';
+import 'package:glass_ui/services/models/grade.dart';
 import 'package:glass_ui/pages/grades/models/value_count.dart';
 import 'package:flutter/material.dart';
 import 'package:glass_ui/constants/constants.dart';

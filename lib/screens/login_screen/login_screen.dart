@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 // my libs
 import 'package:glass_ui/constants/view_const.dart';
-import 'package:glass_ui/controllers/login_controller.dart';
+import 'package:glass_ui/services/controllers/login_controller.dart';
 //components
 import 'components/screen_background.dart';
 

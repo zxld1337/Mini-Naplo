@@ -1,10 +1,10 @@
 import 'package:get/get.dart';
 // controllers
-import 'package:glass_ui/services/api_service.dart';
-import 'package:glass_ui/controllers/chart_controller.dart';
-import 'package:glass_ui/controllers/frame_controller.dart';
-import 'package:glass_ui/controllers/login_controller.dart';
-import 'package:glass_ui/services/network_service.dart';
+import 'package:glass_ui/services/controllers/api_service.dart';
+import 'package:glass_ui/services/controllers/chart_controller.dart';
+import 'package:glass_ui/services/controllers/frame_controller.dart';
+import 'package:glass_ui/services/controllers/login_controller.dart';
+import 'package:glass_ui/services/controllers/network_service.dart';
 
 class InitialBinding implements Bindings {
   @override

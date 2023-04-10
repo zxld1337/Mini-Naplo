@@ -1,11 +1,11 @@
 // basic
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:glass_ui/services/api_service.dart';
-import 'package:glass_ui/services/network_service.dart';
+import 'package:glass_ui/services/controllers/api_service.dart';
+import 'package:glass_ui/services/controllers/network_service.dart';
 import 'package:glass_ui/constants/constants.dart' as cv;
 // services
-import 'package:glass_ui/client/user.dart';
+import 'package:glass_ui/services/client/user.dart';
 // routing
 import 'package:glass_ui/routes/app_routes.dart';
 // hive database

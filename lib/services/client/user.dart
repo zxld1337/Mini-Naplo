@@ -2,10 +2,10 @@ import 'package:intl/intl.dart';
 import '../api/kreta_api.dart';
 import 'user_interface.dart';
 // models
-import 'package:glass_ui/models/grade.dart';
-import 'package:glass_ui/models/timetable.dart';
-import 'package:glass_ui/models/absences.dart';
-import 'package:glass_ui/models/student.dart';
+import 'package:glass_ui/services/models/grade.dart';
+import 'package:glass_ui/services/models/timetable.dart';
+import 'package:glass_ui/services/models/absences.dart';
+import 'package:glass_ui/services/models/student.dart';
 
 // for comments check 'user_interface.dart'
 class User extends KretaAPI implements IUser {
