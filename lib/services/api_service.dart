@@ -57,13 +57,20 @@ class ApiService extends GetxService {
   }
 
   Future<void> initData() async {
-    timeTable(await user.getTable());
-    grades(await user.getEvaluations());
-    absence(await user.getAbsences());
     student(await user.getStudentInfo());
+    absence(await user.getAbsences());
+    grades(await user.getEvaluations());
 
     Get.find<ChartController>().setData(grades);
     getGps();
+
+    
+    try {
+      timeTable(await user.getTable());
+    } catch (e) {
+      // errors if not school day
+    }
+    
   }
 
   void getGps() {
