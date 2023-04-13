@@ -44,7 +44,7 @@ class TimeTable {
 
   // Formating time
   static String formatHour(String time) => time.split('T')[1].substring(0, 5);
-  static String addHour(String time) => "${int.parse(time.split(':')[0]) + 1}:${time.split(':')[1]}";
+  static String addHour(String time) => "${int.parse(time.split(':')[0]) + 2}:${time.split(':')[1]}";
 
   @override
   String toString() {
