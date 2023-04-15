@@ -8,13 +8,13 @@ import 'package:mini_naplo/routes/app_routes.dart';
 // database
 import 'package:hive_flutter/hive_flutter.dart';
 
+
 void main() async {
   // init widgets
   WidgetsFlutterBinding.ensureInitialized();
   // init database
   await Hive.initFlutter();
   await Hive.openBox('MainBox');
-  //await Hive.box('MainBox').clear();
   // Start App
   runApp(const App());
 }
