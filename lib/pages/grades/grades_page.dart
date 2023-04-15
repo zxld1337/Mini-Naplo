@@ -42,8 +42,8 @@ class GradesPage extends StatelessWidget {
           // Top chart
           Obx(
             () => StatsTile(
-              palette: chartController.palette.value,
-              valueData: chartController.valueData.value,
+              palette: chartController.getPalette,
+              valueData: chartController.getValueData,
             ),
           ),
 

@@ -5,15 +5,18 @@ import 'package:flutter/material.dart';
 import 'package:mini_naplo/constants/constants.dart';
 
 class ChartController extends GetxController {
-  final valueData = <ValueCount>[].obs;
-  final palette = <Color>[].obs;
+  final _valueData = <ValueCount>[].obs;
+  final _palette = <Color>[].obs;
   final grades = <Grade>[].obs;
+
+  get getPalette => _palette.value;
+  get getValueData => _valueData.value;
 
   setData(data) {
     grades.value = data;
     grades.retainWhere((sub) => sub.value.length == 1);
-    valueData.value = ValueCount.getValueCount(grades);
-    palette.value = gradeValueColor.values.toList();
+    _valueData.value = ValueCount.getValueCount(grades);
+    _palette.value = gradeValueColor.values.toList();
   }
 
   // Returns padding if first or last item in map
