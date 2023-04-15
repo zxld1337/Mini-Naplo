@@ -13,7 +13,6 @@ import 'package:mini_naplo/constants/constants.dart';
 class AbsencesPage extends StatelessWidget {
   AbsencesPage({super.key});
 
-  static const double _opacity = 0.6;
   final apiService = Get.find<ApiService>();
 
   @override
@@ -42,13 +41,13 @@ class AbsencesPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SquareTile(
-                  bgColor: const Color.fromARGB(255, 59, 225, 59).withOpacity(_opacity),
+                  bgColor: const Color.fromARGB(255, 59, 225, 59).withOpacity(constOpacity),
                   text1: "Igazolt",
                   text2: "hiányzások",
                   hours: "${apiService.absence.value.verifiedAbsences}",
                 ),
                 SquareTile(
-                  bgColor: const Color.fromARGB(255, 255, 59, 59).withOpacity(_opacity),
+                  bgColor: const Color.fromARGB(255, 255, 59, 59).withOpacity(constOpacity),
                   text1: "Igazolandó",
                   text2: "hiányzások",
                   hours: "${apiService.absence.value.unVerifiedAbsences}",
