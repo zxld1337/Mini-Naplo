@@ -2,10 +2,8 @@ import 'package:intl/intl.dart';
 import '../api/kreta_api.dart';
 import 'user_interface.dart';
 // models
-import 'package:mini_naplo/services/models/grade.dart';
-import 'package:mini_naplo/services/models/timetable.dart';
-import 'package:mini_naplo/services/models/absences.dart';
-import 'package:mini_naplo/services/models/student.dart';
+import '../models/models.dart';
+
 
 // for comments check 'user_interface.dart'
 class User extends KretaAPI implements IUser {

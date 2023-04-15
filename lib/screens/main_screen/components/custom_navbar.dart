@@ -11,7 +11,7 @@ import '../helpers/rive_utils.dart';
 class CustomNavbar extends StatelessWidget {
   CustomNavbar({super.key});
 
-  final frameController = Get.put(FrameController());
+  final frameController = Get.find<FrameController>();
 
   @override
   Widget build(BuildContext context) {

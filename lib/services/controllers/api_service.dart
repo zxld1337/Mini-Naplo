@@ -3,13 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 // backend client
 import 'package:mini_naplo/services/client/user.dart';
-import 'package:mini_naplo/services/controllers/network_service.dart';
 import 'chart_controller.dart';
 // database
 import 'package:hive/hive.dart';
 // utils
+import 'package:mini_naplo/services/controllers/network_service.dart';
 import 'package:mini_naplo/services/models/models.dart';
 import 'package:mini_naplo/constants/constants.dart' as cv;
+
 
 class ApiService extends GetxService {
   // reactive variables
@@ -35,7 +36,7 @@ class ApiService extends GetxService {
     if (!await Get.find<NetworkService>().isOnline()) return;
     if (db.get('username') == null) return;
 
-    // show dialog till data loaded
+    // show dialog till data loading
     showDialog(
       context: Get.overlayContext!,
       barrierDismissible: false,
@@ -66,10 +67,11 @@ class ApiService extends GetxService {
     _user(User(
       user: username,
       password: password,
-      institute: cv.instituteCode,
+      institute: institute,
     ));
     await user.init();
-    return (await user.login()) ? true : false;
+    
+    return await user.login();
   }
 
   Future<void> refreshData() async {
