@@ -29,3 +29,6 @@ const String timetableBgRive = "assets/animated_images/rive/shapes.riv";
 
 // rive icons
 const String navbarIcons = "assets/animated_icons/icons.riv";
+
+// absences page 
+const double constOpacity = 0.6;
