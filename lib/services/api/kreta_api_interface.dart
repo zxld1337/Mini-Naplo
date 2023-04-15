@@ -7,10 +7,8 @@ abstract class IKretaAPI {
   Future<bool> login();
   // gets fresh bearer
   Future<void> refreshBearer();
-
-
+  
   /* fetch methods for getting ui data */
-
   // Fetch Evaluations [Ertekelesek]
   Future<List<dynamic>> fetchEvaluations();
 

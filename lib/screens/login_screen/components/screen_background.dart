@@ -1,12 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:mini_naplo/constants/view_const.dart';
 
-
 class ScreenBackground extends StatelessWidget {
-  const ScreenBackground({
-    super.key,
-  });
+  const ScreenBackground({super.key});
 
   @override
   Widget build(BuildContext context) {

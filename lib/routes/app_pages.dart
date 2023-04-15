@@ -27,18 +27,12 @@ class AppPages {
 
   static Widget getPage(String page) {
     switch (page) {
-      case Routes.HOME:
-        return HomePage(key: Key("1"));
-      case Routes.TIMETABLE:
-        return TimetablePage(key: Key("2"));
-      case Routes.GRADES:
-        return GradesPage(key: Key("3"));
-      case Routes.ABSENCES:
-        return AbsencesPage(key: Key("4"));
-      case Routes.USERINFO:
-        return StudentPage(key: Key("5"));
-      default:
-        return HomePage(key: Key("1"));
+      case Routes.HOME: return HomePage(key: Key("1"));
+      case Routes.TIMETABLE: return TimetablePage(key: Key("2"));
+      case Routes.GRADES: return GradesPage(key: Key("3"));
+      case Routes.ABSENCES: return AbsencesPage(key: Key("4"));
+      case Routes.USERINFO: return StudentPage(key: Key("5"));
+      default: return HomePage(key: Key("1"));
     }
   }
 }

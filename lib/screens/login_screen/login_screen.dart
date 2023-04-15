@@ -7,7 +7,7 @@ import 'package:mini_naplo/services/controllers/login_controller.dart';
 //components
 import 'components/screen_background.dart';
 
-//TODO can inprove: [own TextField widget]
+
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});
 
@@ -184,7 +184,7 @@ class LoginScreen extends StatelessWidget {
                       ),
                       child: Obx(
                         () => TextButton(
-                          onPressed: () => loginController.signUserIn(),
+                          onPressed: loginController.signUserIn,
                           child: Text(
                             loginController.buttonText.value,
                             style: const TextStyle(

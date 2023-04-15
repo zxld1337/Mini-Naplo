@@ -1,27 +1,27 @@
 // basic
-import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:mini_naplo/services/controllers/api_service.dart';
-import 'package:mini_naplo/services/controllers/network_service.dart';
 import 'package:mini_naplo/constants/constants.dart' as cv;
 // services
-import 'package:mini_naplo/services/client/user.dart';
-// routing
+import 'package:mini_naplo/services/controllers/network_service.dart';
+import 'package:mini_naplo/services/controllers/api_service.dart';
+// routing / state
+import 'package:get/get.dart';
 import 'package:mini_naplo/routes/app_routes.dart';
 // hive database
 import 'package:hive_flutter/hive_flutter.dart';
 // for relogin page set
-import 'frame_controller.dart'; 
-  
+// import 'frame_controller.dart';
+
+
 class LoginController extends GetxController {
-  // ui vars
+  // ui variables
   final buttonText = "Bejelentkezés".obs;
   final isObscure = true.obs;
+  // db refrence
+  final mainBox = Hive.box("MainBox");
   // text controllers
   late final TextEditingController usernameController;
   late final TextEditingController passwordController;
-  // db refrence
-  final mainBox = Hive.box("MainBox");
 
   @override
   void onInit() {
@@ -66,13 +66,7 @@ class LoginController extends GetxController {
     await apiService.initData();
     await _addStudentToDb(username, password, apiService.bearerAsMap);
 
-    // TODO when relogin set to mainPage
-    if (Get.parameters['relogin'] == null) {
-      Get.offNamed(Routes.NAVIGATOR);
-    } else {
-      //? Get.find<FrameController>().onBottomMenuTap(0); not working
-      Get.back();
-    }
+    Get.parameters['relogin'] == null ? Get.offNamed(Routes.NAVIGATOR) : Get.back();
   }
 
   // validating inputs
