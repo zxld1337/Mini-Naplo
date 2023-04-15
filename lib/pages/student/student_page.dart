@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mini_naplo/services/controllers/api_service.dart';
-import 'package:mini_naplo/routes/app_routes.dart';
-import 'package:hive_flutter/hive_flutter.dart';
+
+
+import 'package:mini_naplo/services/controllers/frame_controller.dart';
 // component
 import 'components/info_tile.dart';
 import '../page_frame.dart';
@@ -10,12 +11,6 @@ import 'package:mini_naplo/constants/constants.dart';
 
 class StudentPage extends StatelessWidget {
   const StudentPage({super.key});
-
-  void _logoutStudent(BuildContext context) {
-    final mainBox = Hive.box('MainBox');
-    mainBox.clear();
-    Get.toNamed("${Routes.LOGIN}?relogin=true");
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +53,7 @@ class StudentPage extends StatelessWidget {
       
                   // Logout Button
                   InkWell(
-                    onTap: () => _logoutStudent(context),
+                    onTap: Get.find<FrameController>().logoutStudent,
                     splashColor: Colors.redAccent,
                     child: Container(
                       height: 54,

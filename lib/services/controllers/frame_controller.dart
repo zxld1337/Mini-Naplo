@@ -1,5 +1,8 @@
 import 'package:mini_naplo/screens/main_screen/helpers/navbar_items.dart';
 import 'package:get/get.dart';
+import 'package:mini_naplo/routes/app_routes.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+
 
 class FrameController extends GetxController {
   final selectedNav = bottomNavs.first.obs;
@@ -19,5 +22,11 @@ class FrameController extends GetxController {
     Future.delayed(const Duration(seconds: 1), () {
       bottomNavs[index].input!.change(false);
     });
+  }
+
+  void logoutStudent() {
+    final mainBox = Hive.box('MainBox');
+    mainBox.clear();
+    Get.toNamed("${Routes.LOGIN}?relogin=true");
   }
 }
