@@ -8,7 +8,6 @@ import '../../services/controllers/frame_controller.dart';
 import '../../constants/view_const.dart';
 import 'components/custom_navbar.dart';
 
-
 class MainFrame extends StatelessWidget {
   MainFrame({super.key});
 
@@ -19,23 +18,18 @@ class MainFrame extends StatelessWidget {
     return Scaffold(
       extendBody: true,
       resizeToAvoidBottomInset: false,
-      backgroundColor: constBgColor,
-      body: Scaffold(
-        backgroundColor: constBgColor,
-        body: Obx(
-          () => PageTransitionSwitcher(
-            transitionBuilder: (child, animation, secondaryAnimation) {
-              return FadeThroughTransition(
-                fillColor: constBgColor,
-                animation: animation,
-                secondaryAnimation: secondaryAnimation,
-                child: child,
-              );
-            },
-            
-            duration: const Duration(milliseconds: 300),
-            child: AppPages.getPage(frameController.currentPageRoute),
-          ),
+      body: Obx(
+        () => PageTransitionSwitcher(
+          transitionBuilder: (child, animation, secondaryAnimation) {
+            return FadeThroughTransition(
+              fillColor: constBgColor,
+              animation: animation,
+              secondaryAnimation: secondaryAnimation,
+              child: child,
+            );
+          },
+          duration: const Duration(milliseconds: 300),
+          child: AppPages.getPage(frameController.currentPageRoute),
         ),
       ),
       bottomNavigationBar: CustomNavbar(),
