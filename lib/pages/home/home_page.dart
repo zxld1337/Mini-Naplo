@@ -6,7 +6,9 @@ import 'package:mini_naplo/constants/constants.dart';
 import '../page_frame.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  HomePage({super.key});
+
+  final controller = Get.find<ApiService>();
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +28,7 @@ class HomePage extends StatelessWidget {
               height: 1.2,
               color: constFontColor,
             ),
-          ),          
+          ),
           Text(
             "Legfrissebb jegyek",
             style: TextStyle(
@@ -39,28 +41,26 @@ class HomePage extends StatelessWidget {
 
           const SizedBox(height: 10),
           Expanded(
-            child: GetX<ApiService>(
-              builder: (controller) {
-                return ListView.builder(
-                  physics: const BouncingScrollPhysics(),
-                  itemCount: controller.grades.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    String topic = controller.grades[index].topic != null
-                        ? controller.grades[index].topic!
-                        : controller.grades[index].gradeType ?? "Félévi";
-                
-                    topic = topic.length < 30 ? topic : topic.substring(0, 30);
-                    return EvalTile(
-                      value: controller.grades[index].value,
-                      topic: topic,
-                      evalName: controller.grades[index].evalName,
-                      date: controller.grades[index].fixedDate,
-                      color: gradeValueColor[int.tryParse(controller.grades[index].value)] ??
-                          Colors.white,
-                    );
-                  },
-                );
-              }
+            child: Obx(
+              () => ListView.builder(
+                physics: const BouncingScrollPhysics(),
+                itemCount: controller.grades.length,
+                itemBuilder: (BuildContext context, int index) {
+                  String topic = controller.grades[index].topic != null
+                      ? controller.grades[index].topic!
+                      : controller.grades[index].gradeType ?? "Félévi";
+
+                  topic = topic.length < 30 ? topic : topic.substring(0, 30);
+                  return EvalTile(
+                    value: controller.grades[index].value,
+                    topic: topic,
+                    evalName: controller.grades[index].evalName,
+                    date: controller.grades[index].fixedDate,
+                    color: gradeValueColor[int.tryParse(controller.grades[index].value)] ??
+                        Colors.white,
+                  );
+                },
+              ),
             ),
           ),
         ],

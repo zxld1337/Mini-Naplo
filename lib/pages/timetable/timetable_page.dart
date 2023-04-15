@@ -9,7 +9,9 @@ import '../page_frame.dart';
 import 'package:mini_naplo/constants/constants.dart';
 
 class TimetablePage extends StatelessWidget {
-  const TimetablePage({super.key});
+  TimetablePage({super.key});
+
+  final controller = Get.find<ApiService>();
 
   @override
   Widget build(BuildContext context) {
@@ -56,8 +58,8 @@ class TimetablePage extends StatelessWidget {
 
           // lession tile
           Expanded(
-            child: GetX<ApiService>(
-              builder: (controller) => ListView.builder(
+            child: Obx(
+              () => ListView.builder(
                 physics: BouncingScrollPhysics(),
                 itemCount: controller.timeTable.length,
                 itemBuilder: (context, index) {
