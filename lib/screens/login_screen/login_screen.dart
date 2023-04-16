@@ -185,12 +185,14 @@ class LoginScreen extends StatelessWidget {
                       child: Obx(
                         () => TextButton(
                           onPressed: loginController.signUserIn,
-                          child: Text(
-                            loginController.buttonText.value,
-                            style: const TextStyle(
-                              color: constFontColor,
-                              fontFamily: constFontFamily,
-                              fontSize: 18,
+                          child: FittedBox(
+                            child: Text(
+                              loginController.buttonText.value,
+                              style: const TextStyle(
+                                color: constFontColor,
+                                fontFamily: constFontFamily,
+                                fontSize: 18,
+                              ),
                             ),
                           ),
                         ),
