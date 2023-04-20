@@ -11,21 +11,22 @@ import 'package:mini_naplo/services/controllers/network_service.dart';
 import 'package:mini_naplo/services/models/models.dart';
 import 'package:mini_naplo/constants/constants.dart' as cv;
 
-
 class ApiService extends GetxService {
-  // reactive variables
+  static ApiService get to => Get.find();
+
+  // reactive UI data variables
   final timeTable = <TimeTable>[].obs;
   final grades = <Grade>[].obs;
   final gradesPerSubject = <dynamic, dynamic>{}.obs;
   final absence = Absences().obs;
   final student = Student().obs;
+  // private
+  final _dataLoaded = false.obs;
   final _user = User().obs;
-  final isDataLoaded = false.obs;
-  // db instance
-  final db = Hive.box('MainBox');
+  final db = Hive.box('mainBox');
 
   // getters
-  get user => _user.value;
+  get dataLoaded => _dataLoaded.value;
   get bearerAsMap => _user.value.bearer.toMap();
 
   @override
@@ -33,7 +34,7 @@ class ApiService extends GetxService {
     super.onInit();
 
     // early returns for offline and null database
-    if (!await Get.find<NetworkService>().isOnline()) return;
+    if (!Get.find<NetworkService>().hasConnection) return;
     if (db.get('username') == null) return;
 
     // show dialog till data loading
@@ -53,7 +54,7 @@ class ApiService extends GetxService {
       institute: cv.instituteCode,
     );
     await initData();
-    isDataLoaded(true);
+    _dataLoaded(true);
 
     Navigator.of(Get.overlayContext!).pop();
   }
@@ -69,28 +70,28 @@ class ApiService extends GetxService {
       password: password,
       institute: institute,
     ));
-    await user.init();
-    
-    return await user.login();
+    await _user().init();
+
+    return await _user().login();
   }
 
   Future<void> refreshData() async {
-    if (!await Get.find<NetworkService>().isOnline()) return;
+    if (!NetworkService.to.hasConnection) return;
 
-    await user.refreshBearer();
+    await _user().refreshBearer();
     await initData();
   }
 
   Future<void> initData() async {
-    student(await user.getStudentInfo());
-    absence(await user.getAbsences());
-    grades(await user.getEvaluations());
+    student(await _user().getStudentInfo());
+    absence(await _user().getAbsences());
+    grades(await _user().getEvaluations());
 
     Get.find<ChartController>().setData(grades);
     getGps();
 
     try {
-      timeTable(await user.getTable());
+      timeTable(await _user().getTable());
     } catch (e) {
       // errors if not school day
     }

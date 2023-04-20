@@ -10,14 +10,14 @@ import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 
 class PageFrame extends StatelessWidget {
   final String bgAsset;
-  final Widget bgImage;
+  final bool needBgImage;
   final bool bottom;
   final Widget child;
 
   const PageFrame({
     super.key,
     required this.bgAsset,
-    required this.bgImage,
+    required this.needBgImage,
     required this.bottom,
     required this.child,
   });
@@ -34,13 +34,17 @@ class PageFrame extends StatelessWidget {
         borderWidth: 2,
         animSpeedFactor: 8,
         showChildOpacityTransition: false,
-        //displacement: 50,
-        //strokeWidth: 3,
-        onRefresh: Get.find<ApiService>().refreshData,
+        onRefresh: ApiService.to.refreshData,
         child: Stack(
           children: [
             // Only Timetable page needs
-            bgImage,
+            if (needBgImage)
+              Positioned(
+                width: Get.width * 1.7,
+                bottom: 200,
+                left: 100,
+                child: Image.asset(timetableBgImage),
+              ),
 
             // Animation
             RiveAnimation.asset(bgAsset),

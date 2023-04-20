@@ -4,10 +4,11 @@ import 'package:get/get.dart';
 import 'package:mini_naplo/services/controllers/api_service.dart';
 
 class NetworkService extends GetxService {
+  static NetworkService get to => Get.find();
+
   final Connectivity _connection = Connectivity();
   final _hasConnection = true.obs;
-
-  get hasConnection => _hasConnection.value;
+  bool get hasConnection => _hasConnection.value;
 
   @override
   Future<void> onInit() async {
@@ -16,17 +17,16 @@ class NetworkService extends GetxService {
     _updateConnection(await _connection.checkConnectivity());
   }
 
-  void _updateConnection(ConnectivityResult conResult) async {
+  Future<void> _updateConnection(ConnectivityResult conResult) async {
     if (conResult == ConnectivityResult.none) {
-      _hasConnection.value = false;
       _showOfflineSnackBar();
+      _hasConnection.value = false;
     } else {
       if (Get.isSnackbarOpen) {
-        _hasConnection.value = true;
         Get.closeCurrentSnackbar();
-        
-        if (!Get.find<ApiService>().isDataLoaded.value) {
-          await Get.find<ApiService>().onInit();
+        _hasConnection.value = true;
+        if (!ApiService.to.dataLoaded) {
+          await ApiService.to.onInit();
         }
       }
     }
@@ -52,7 +52,4 @@ class NetworkService extends GetxService {
       padding: const EdgeInsets.only(left: 26, top: 16, bottom: 16),
     );
   }
-
-  // returns true if online
-  Future<bool> isOnline() async => await _connection.checkConnectivity() != ConnectivityResult.none;
 }

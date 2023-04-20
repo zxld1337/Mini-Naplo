@@ -10,16 +10,14 @@ import 'components/square_tile.dart';
 // utils
 import 'package:mini_naplo/constants/constants.dart';
 
-class AbsencesPage extends StatelessWidget {
-  AbsencesPage({super.key});
-
-  final apiService = Get.find<ApiService>();
+class AbsencesPage extends GetView<ApiService> {
+  const AbsencesPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return PageFrame(
       bgAsset: constBgRive,
-      bgImage: Container(),
+      needBgImage: false,
       bottom: false,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -44,13 +42,13 @@ class AbsencesPage extends StatelessWidget {
                   bgColor: const Color.fromARGB(255, 59, 225, 59).withOpacity(constOpacity),
                   text1: "Igazolt",
                   text2: "hiányzások",
-                  hours: "${apiService.absence.value.verifiedAbsences}",
+                  hours: "${controller.absence().verifiedAbsences}",
                 ),
                 SquareTile(
                   bgColor: const Color.fromARGB(255, 255, 59, 59).withOpacity(constOpacity),
                   text1: "Igazolandó",
                   text2: "hiányzások",
-                  hours: "${apiService.absence.value.unVerifiedAbsences}",
+                  hours: "${controller.absence().unVerifiedAbsences}",
                 ),
               ],
             ),
@@ -70,18 +68,16 @@ class AbsencesPage extends StatelessWidget {
             () => Expanded(
               child: ListView.builder(
                 physics: const BouncingScrollPhysics(),
-                itemCount: apiService.absence.value.perSubject!.length,
+                itemCount: controller.absence().perSubject!.length,
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: const EdgeInsets.only(bottom: 8),
                     child: AbsencesTile(
-                      name: apiService.absence.value.perSubject!.keys.elementAt(index),
-                      hours: apiService.absence.value.perSubject!.values
-                          .elementAt(index)
-                          .toString(),
+                      name: controller.absence().perSubject!.keys.elementAt(index),
+                      hours: controller.absence().perSubject!.values.elementAt(index).toString(),
                       bgColor: constBgColor,
-                      icon: subjectImg[Absences.nameConv[
-                              apiService.absence.value.perSubject!.keys.elementAt(index)]] ??
+                      icon: subjectImg[Absences
+                              .nameConv[controller.absence().perSubject!.keys.elementAt(index)]] ??
                           constSubjectIcon,
                     ),
                   );

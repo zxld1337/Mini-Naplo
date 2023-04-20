@@ -1,5 +1,5 @@
-// basic
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:mini_naplo/constants/constants.dart' as cv;
 // services
 import 'package:mini_naplo/services/controllers/network_service.dart';
@@ -7,39 +7,19 @@ import 'package:mini_naplo/services/controllers/api_service.dart';
 // routing / state
 import 'package:get/get.dart';
 import 'package:mini_naplo/routes/app_routes.dart';
-// hive database
-import 'package:hive_flutter/hive_flutter.dart';
-// for relogin page set
-// import 'frame_controller.dart';
 
 
 class LoginController extends GetxController {
   // ui variables
   final buttonText = "Bejelentkezés".obs;
   final isObscure = true.obs;
-  // db refrence
-  final mainBox = Hive.box("MainBox");
   // text controllers
-  late final TextEditingController usernameController;
-  late final TextEditingController passwordController;
-
-  @override
-  void onInit() {
-    super.onInit();
-    usernameController = TextEditingController();
-    passwordController = TextEditingController();
-  }
-
-  @override
-  void onClose() {
-    usernameController.dispose();
-    passwordController.dispose();
-    super.onClose();
-  }
+  final usernameController = TextEditingController();
+  final passwordController = TextEditingController();
 
   // on Button Press
   void signUserIn() async {
-    if (!Get.find<NetworkService>().hasConnection) {
+    if (!NetworkService.to.hasConnection) {
       buttonText("Nincsen internet!");
       return;
     }
@@ -50,7 +30,7 @@ class LoginController extends GetxController {
     // assert problems && validate imput
     if (!_studentIsValid(username, password)) return;
 
-    final apiService = Get.find<ApiService>();
+    final apiService = ApiService.to;
     final loginSuccess = await apiService.createUser(
       username: username,
       password: password,
@@ -84,9 +64,10 @@ class LoginController extends GetxController {
 
   // save valid user to database
   Future<void> _addStudentToDb(String usr, String pwd, Map brr) async {
-    await mainBox.put("username", usr);
-    await mainBox.put("password", pwd);
-    await mainBox.put("bearer", brr);
+    final db = Hive.box("mainBox");
+    await db.put("username", usr);
+    await db.put("password", pwd);
+    await db.put("bearer", brr);
   }
 
   void resetButtonText(String text) => buttonText("Bejelentkezés");

@@ -8,23 +8,14 @@ import '../page_frame.dart';
 // utils
 import 'package:mini_naplo/constants/constants.dart';
 
-class TimetablePage extends StatelessWidget {
-  TimetablePage({super.key});
-
-  final controller = Get.find<ApiService>();
+class TimetablePage extends GetView<ApiService> {
+  const TimetablePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Widget bgImage = Positioned(
-      width: MediaQuery.of(context).size.width * 1.7,
-      bottom: 200,
-      left: 100,
-      child: Image.asset(timetableBgImage),
-    );
-
     return PageFrame(
       bgAsset: timetableBgRive,
-      bgImage: bgImage,
+      needBgImage: true,
       bottom: true,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

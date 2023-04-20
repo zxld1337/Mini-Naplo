@@ -8,10 +8,8 @@ import 'package:mini_naplo/services/controllers/login_controller.dart';
 import 'components/screen_background.dart';
 
 
-class LoginScreen extends StatelessWidget {
-  LoginScreen({super.key});
-
-  final loginController = Get.find<LoginController>();
+class LoginScreen extends GetView<LoginController> {
+  const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -77,8 +75,8 @@ class LoginScreen extends StatelessWidget {
                     children: [
                       // Username TextField
                       TextField(
-                        controller: loginController.usernameController,
-                        onChanged: loginController.resetButtonText,
+                        controller: controller.usernameController,
+                        onChanged: controller.resetButtonText,
                         cursorColor: constFontColor,
                         style: const TextStyle(color: constFontColor, fontFamily: constFontFamily),
                         decoration: InputDecoration(
@@ -116,12 +114,12 @@ class LoginScreen extends StatelessWidget {
                       // Password TextField
                       Obx(
                         () => TextField(
-                          controller: loginController.passwordController,
-                          onChanged: loginController.resetButtonText,
+                          controller: controller.passwordController,
+                          onChanged: controller.resetButtonText,
                           cursorColor: constFontColor,
                           style:
                               const TextStyle(color: constFontColor, fontFamily: constFontFamily),
-                          obscureText: loginController.isObscure.value,
+                          obscureText: controller.isObscure.value,
                           decoration: InputDecoration(
                             hintText: "Születési dátum",
                             hintStyle:
@@ -150,9 +148,9 @@ class LoginScreen extends StatelessWidget {
                               color: constFontColor.withOpacity(0.6),
                             ),
                             suffixIcon: IconButton(
-                              onPressed: () => loginController.isObscure.toggle(),
+                              onPressed: () => controller.isObscure.toggle(),
                               icon: const Icon(Icons.remove_red_eye_outlined),
-                              color: loginController.isObscure.value
+                              color: controller.isObscure()
                                   ? constFontColor.withOpacity(0.6)
                                   : constFontColor,
                             ),
@@ -184,10 +182,10 @@ class LoginScreen extends StatelessWidget {
                       ),
                       child: Obx(
                         () => TextButton(
-                          onPressed: loginController.signUserIn,
+                          onPressed: controller.signUserIn,
                           child: FittedBox(
                             child: Text(
-                              loginController.buttonText.value,
+                              controller.buttonText(),
                               style: const TextStyle(
                                 color: constFontColor,
                                 fontFamily: constFontFamily,

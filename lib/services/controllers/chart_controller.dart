@@ -12,6 +12,7 @@ class ChartController extends GetxController {
   get getPalette => _palette.value;
   get getValueData => _valueData.value;
 
+
   setData(data) {
     grades.value = data;
     grades.retainWhere((sub) => sub.value.length == 1);

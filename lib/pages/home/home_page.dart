@@ -5,16 +5,14 @@ import 'package:mini_naplo/pages/home/components/eval_tile.dart';
 import 'package:mini_naplo/constants/constants.dart';
 import '../page_frame.dart';
 
-class HomePage extends StatelessWidget {
-  HomePage({super.key});
-
-  final controller = Get.find<ApiService>();
+class HomePage extends GetView<ApiService> {
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return PageFrame(
       bgAsset: constBgRive,
-      bgImage: Container(),
+      needBgImage: false,
       bottom: false,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

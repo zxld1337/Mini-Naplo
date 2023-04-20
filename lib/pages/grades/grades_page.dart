@@ -10,17 +10,15 @@ import 'components/grade_tile.dart';
 //utils
 import 'package:mini_naplo/constants/constants.dart';
 
-class GradesPage extends StatelessWidget {
-  GradesPage({super.key});
+class GradesPage extends GetView<ChartController> {
+  const GradesPage({super.key});
 
-  final apiService = Get.find<ApiService>();
-  final chartController = Get.find<ChartController>();
 
   @override
   Widget build(BuildContext context) {
     return PageFrame(
       bgAsset: constBgRive,
-      bgImage: Container(),
+      needBgImage: false,
       bottom: false,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -42,8 +40,8 @@ class GradesPage extends StatelessWidget {
           // Top chart
           Obx(
             () => StatsTile(
-              palette: chartController.getPalette,
-              valueData: chartController.getValueData,
+              palette: controller.getPalette,
+              valueData: controller.getValueData,
             ),
           ),
 
@@ -54,16 +52,16 @@ class GradesPage extends StatelessWidget {
             () => Expanded(
               child: ListView.builder(
                 physics: const BouncingScrollPhysics(),
-                itemCount: apiService.gradesPerSubject.value.length,
+                itemCount: ApiService.to.gradesPerSubject().length,
                 shrinkWrap: true,
                 itemBuilder: (BuildContext context, int index) {
-                  final currentSubject = apiService.gradesPerSubject.value.keys.elementAt(index);
-                  final avgCalc = apiService.gradesPerSubject.value[currentSubject]["calculated"];
+                  final currentSubject = ApiService.to.gradesPerSubject().keys.elementAt(index);
+                  final avgCalc = ApiService.to.gradesPerSubject()[currentSubject]["calculated"];
                   return GradeTile(
                     subject: currentSubject,
                     avg: avgCalc,
                     avgBgColor: gradeValueColor[avgCalc.round()]!,
-                    bRadius: chartController.getPadding(index, apiService.gradesPerSubject),
+                    bRadius: controller.getPadding(index, ApiService.to.gradesPerSubject),
                   );
                 },
               ),

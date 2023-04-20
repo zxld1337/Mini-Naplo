@@ -1,21 +1,16 @@
 import 'package:get/get.dart';
 // controllers
 import 'package:mini_naplo/services/controllers/chart_controller.dart';
-import 'package:mini_naplo/services/controllers/frame_controller.dart';
-import 'package:mini_naplo/services/controllers/login_controller.dart';
 // services
 import 'package:mini_naplo/services/controllers/api_service.dart';
 import 'package:mini_naplo/services/controllers/network_service.dart';
 
 class InitialBinding implements Bindings {
   @override
-  void dependencies() {
-    Get.put<NetworkService>(NetworkService());
-    Get.lazyPut<ApiService>(() => ApiService());
-        
-    Get.create<LoginController>(() => LoginController());
+  void dependencies() {    
+    Get.put(NetworkService());
+    Get.putAsync(() async => ApiService());
 
-    Get.put<ChartController>(ChartController());
-    Get.lazyPut<FrameController>(() => FrameController());
+    Get.lazyPut(() => ChartController());
   }
 }

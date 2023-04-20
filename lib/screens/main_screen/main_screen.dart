@@ -8,10 +8,8 @@ import '../../services/controllers/frame_controller.dart';
 import '../../constants/view_const.dart';
 import 'components/custom_navbar.dart';
 
-class MainFrame extends StatelessWidget {
-  MainFrame({super.key});
-
-  final frameController = Get.find<FrameController>();
+class MainFrame extends GetView<FrameController> {
+  const MainFrame({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +27,7 @@ class MainFrame extends StatelessWidget {
             );
           },
           duration: const Duration(milliseconds: 300),
-          child: AppPages.getPage(frameController.currentPageRoute),
+          child: AppPages.getPage(controller.currentPageRoute),
         ),
       ),
       bottomNavigationBar: CustomNavbar(),

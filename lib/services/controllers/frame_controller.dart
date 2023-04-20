@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:mini_naplo/routes/app_routes.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
-
 class FrameController extends GetxController {
   final selectedNav = bottomNavs.first.obs;
   final selectedNavIndex = 0.obs;
