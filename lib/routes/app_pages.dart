@@ -7,13 +7,13 @@ import 'package:mini_naplo/view/screens/login_screen/binding/login_binding.dart'
 // screens
 import 'package:mini_naplo/view/screens/login_screen/login_screen.dart';
 import 'package:mini_naplo/view/screens/navigator_screen/navigator_screen.dart' as my;
-
 // pages
 import 'package:mini_naplo/view/pages/absences/absences_page.dart';
 import 'package:mini_naplo/view/pages/home/home_page.dart';
 import 'package:mini_naplo/view/pages/grades/grades_page.dart';
 import 'package:mini_naplo/view/pages/student/student_page.dart';
 import 'package:mini_naplo/view/pages/timetable/timetable_page.dart';
+
 
 class AppPages {
   static final routes = [

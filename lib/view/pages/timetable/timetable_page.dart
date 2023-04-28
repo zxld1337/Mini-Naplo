@@ -12,9 +12,6 @@ class TimetablePage extends GetView<ApiService> {
   @override
   Widget build(BuildContext context) {
     return PageFrame(
-      //bgAsset: timetableBgRive,
-      //needBgImage: false,
-      bottom: true,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -26,7 +23,7 @@ class TimetablePage extends GetView<ApiService> {
               fontSize: 30,
               fontFamily: constFontFamily,
               height: 1.2,
-              color: constFontColor,
+              color: constTitleColor,
             ),
           ),
           // current day of the week
@@ -35,7 +32,7 @@ class TimetablePage extends GetView<ApiService> {
             style: TextStyle(
               fontSize: 18,
               fontFamily: constFontFamily,
-              color: constFontColor.withOpacity(0.4),
+              color: constTitleColor.withOpacity(0.4),
               height: 1.2,
             ),
           ),

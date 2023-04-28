@@ -14,9 +14,6 @@ class AbsencesPage extends GetView<ApiService> {
   @override
   Widget build(BuildContext context) {
     return PageFrame(
-      //bgAsset: constBgRive,
-      //needBgImage: false,
-      bottom: false,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -26,7 +23,7 @@ class AbsencesPage extends GetView<ApiService> {
               fontSize: 30,
               fontFamily: constFontFamily,
               height: 1.2,
-              color: constFontColor,
+              color: constTitleColor,
             ),
           ),
           const SizedBox(height: 30),

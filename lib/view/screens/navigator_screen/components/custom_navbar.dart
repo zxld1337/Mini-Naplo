@@ -60,7 +60,7 @@ class CustomNavbar extends GetView<NavigatorController> {
                       height: 4,
                       width: navbarItems[index] == controller.selectedNav() ? 20 : 0,
                       decoration: const BoxDecoration(
-                        color: Colors.deepPurple,
+                        color: constSecondaryColor,
                         borderRadius: BorderRadius.all(Radius.circular(12)),
                       ),
                     ),

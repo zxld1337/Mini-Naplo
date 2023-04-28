@@ -2,7 +2,13 @@ import 'package:flutter/material.dart';
 
 // Color
 const Color constFontColor = Colors.white;
+const Color constTitleColor = Colors.white;
+
 const Color constBgColor = Colors.black;
+const Color constPageColor = Colors.white10;
+
+const Color constSecondaryColor = Colors.deepPurpleAccent;
+//Color constRefreshBgColor = Colors.deepPurple.withOpacity(0.6);
 
 // font
 const String constFontFamily = "Poppins";

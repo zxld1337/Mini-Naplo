@@ -14,9 +14,6 @@ class GradesPage extends GetView<ChartController> {
   @override
   Widget build(BuildContext context) {
     return PageFrame(
-      //bgAsset: constBgRive,
-      //needBgImage: false,
-      bottom: false,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -28,7 +25,7 @@ class GradesPage extends GetView<ChartController> {
               fontSize: 30,
               fontFamily: constFontFamily,
               height: 1.2,
-              color: constFontColor,
+              color: constTitleColor,
             ),
           ),
 

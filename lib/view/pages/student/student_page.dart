@@ -13,9 +13,6 @@ class StudentPage extends GetView<ApiService> {
   @override
   Widget build(BuildContext context) {
     return PageFrame(
-      //bgAsset: constBgRive,
-      //needBgImage: false,
-      bottom: false,
       child: Obx(
         () => Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -33,7 +30,7 @@ class StudentPage extends GetView<ApiService> {
                         fontSize: 30,
                         fontFamily: constFontFamily,
                         height: 1.2,
-                        color: constFontColor,
+                        color: constTitleColor,
                       ),
                     ),
                     Text(
@@ -42,7 +39,7 @@ class StudentPage extends GetView<ApiService> {
                         fontSize: 20,
                         fontFamily: constFontFamily,
                         height: 1,
-                        color: constFontColor.withOpacity(0.4),
+                        color: constTitleColor.withOpacity(0.4),
                       ),
                     ),
                   ],
