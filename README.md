@@ -5,10 +5,10 @@
 
 ## UI
 <div style="display: flex;">
-  <img src="assets/ui_examples/login_ui.png" alt="Login UI" style="width: 25%;">
-  <img src="assets/ui_examples/main_page.png" alt="Main Page" style="width: 25%;">
-  <img src="assets/ui_examples/timetable_page.png" alt="Timetable Page" style="width: 25%;">
-  <img src="assets/ui_examples/absences_page.png" alt="Absences Page" style="width: 25%;">
+  <img src="assets/ui_examples/login_ui.png" alt="Login UI" style="width: 23%;">
+  <img src="assets/ui_examples/main_page.png" alt="Main Page" style="width: 23%;">
+  <img src="assets/ui_examples/timetable_page.png" alt="Timetable Page" style="width: 23%;">
+  <img src="assets/ui_examples/absences_page.png" alt="Absences Page" style="width: 23%;">
 </div>
 
 
