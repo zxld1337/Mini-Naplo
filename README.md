@@ -4,10 +4,7 @@
 ### Created this project for school, and to learn Flutter 
 
 ## UI
-![Login](assets/ui_examples/login_ui.png)
-![Home](assets/ui_examples/main_page.png)
-![Timetable](assets/ui_examples/timetable_page.png)
-![Absences](assets/ui_examples/absences_page.png)
+![Login](assets/ui_examples/login_ui.png) ![Home](assets/ui_examples/main_page.png) ![Timetable](assets/ui_examples/timetable_page.png) ![Absences](assets/ui_examples/absences_page.png)
 
 ### About
 - Only useable for my school [VBJ] 
