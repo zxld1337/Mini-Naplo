@@ -5,19 +5,10 @@
 
 ## UI
 <div style="overflow: hidden;">
-  <div style="width: 33.33%; float: left; padding: 5px;">
-    <img src="assets/ui_examples/login_ui.png" alt="Login UI" style="width: 25%;">
-  </div>
-  <div style="width: 33.33%; float: left; padding: 5px;">
-    <img src="assets/ui_examples/main_page.png" alt="Main Page" style="width: 25%;">
-  </div>
-  <div style="width: 33.33%; float: left; padding: 5px;">
-    <img src="assets/ui_examples/timetable_page.png" alt="Timetable Page" style="width: 25%;">
-  </div>
-</div>
-
-<div style="overflow: hidden;">
   <div style="width: 100%; float: left; padding: 5px;">
+  <img src="assets/ui_examples/login_ui.png" alt="Login UI" style="width: 25%;">
+  <img src="assets/ui_examples/main_page.png" alt="Main Page" style="width: 25%;">
+  <img src="assets/ui_examples/timetable_page.png" alt="Timetable Page" style="width: 25%;">
     <img src="assets/ui_examples/absences_page.png" alt="Absences Page" style="width: 25%;">
   </div>
 </div>
