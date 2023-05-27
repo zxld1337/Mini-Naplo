@@ -13,12 +13,11 @@ class LoginController extends GetxController {
   // ui variables
   final buttonText = "Bejelentkezés".obs;
   final isObscure = true.obs;
-  // text controllers
+
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
 
-  // on Button Press
-  void signUserIn() async {
+  Future<void> signUserIn() async {
     if (!NetworkService.to.hasConnection) {
       buttonText("Nincsen internet!");
       return;

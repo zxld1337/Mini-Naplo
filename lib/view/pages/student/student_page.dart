@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 import 'package:mini_naplo/controllers/api_service.dart';
 import 'package:mini_naplo/controllers/navigator_controller.dart';
 import 'components/info_tile.dart';
-import 'package:mini_naplo/view/pages/static_page_frame.dart';
 import 'package:mini_naplo/constants/constants.dart';
+import 'package:mini_naplo/view/pages/rive_page_frame.dart';
 
 
 class StudentPage extends GetView<ApiService> {
@@ -13,6 +13,8 @@ class StudentPage extends GetView<ApiService> {
   @override
   Widget build(BuildContext context) {
     return PageFrame(
+      bgAsset: constBgRive,
+      needBgImage: false,
       child: Obx(
         () => Column(
           crossAxisAlignment: CrossAxisAlignment.start,

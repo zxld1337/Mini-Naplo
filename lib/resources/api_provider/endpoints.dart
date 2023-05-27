@@ -25,6 +25,6 @@ class KretaEndpoints {
   static const homeworkDone = "/ellenorzo/V3/Sajat/HaziFeladatok/Megoldva";
   static const capabilities = "/ellenorzo/V3/Sajat/Intezmenyek";
 
-  static const userAgent = "hu.ekreta.student/1.0.5/Android/0/0";
+  static const userAgent = "mini-naplo-v2-beta";
   static const clientID = "kreta-ellenorzo-mobile-android";
 }

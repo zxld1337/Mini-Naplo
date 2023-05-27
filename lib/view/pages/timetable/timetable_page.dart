@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mini_naplo/controllers/api_service.dart';
-import 'components/lession_tile.dart';
-import 'package:mini_naplo/view/pages/static_page_frame.dart';
 import 'package:mini_naplo/constants/constants.dart';
-
+import 'package:mini_naplo/controllers/api_service.dart';
+import 'package:mini_naplo/view/pages/rive_page_frame.dart';
+import 'package:mini_naplo/view/pages/timetable/components/no_lession_tile.dart';
+import 'components/tile_list_builder.dart';
 
 class TimetablePage extends GetView<ApiService> {
   const TimetablePage({super.key});
@@ -12,6 +12,8 @@ class TimetablePage extends GetView<ApiService> {
   @override
   Widget build(BuildContext context) {
     return PageFrame(
+      bgAsset: constBgRive,
+      needBgImage: true,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -42,30 +44,14 @@ class TimetablePage extends GetView<ApiService> {
             height: 30,
           ),
 
-          // lession tile
-          Expanded(
-            child: Obx(
-              () => ListView.builder(
-                physics: const BouncingScrollPhysics(),
-                itemCount: controller.timeTable.length,
-                itemBuilder: (context, index) {
-                  final ctt = controller.timeTable;
-                  return Padding(
-                    padding: const EdgeInsets.only(bottom: 12),
-                    child: LessionTile(
-                      name: ctt[index].name,
-                      subNumber: ctt[index].subjectNum,
-                      teacher: ctt[index].teacher,
-                      roomId: ctt[index].roomId,
-                      fromTime: ctt[index].fromTime,
-                      tillTime: ctt[index].tillTime,
-                      bgColor: subjectColor[ctt[index].name] ?? constBgColor,
-                      icon: subjectImg[ctt[index].name] ?? constSubjectIcon,
-                    ),
-                  );
-                },
-              ),
-            ),
+          // lession tile's or noLessionTile
+          Obx(
+            () => controller.timeTable().isEmpty
+                ? const NoLessionTile(
+                    text: "Nincsenek óráid",
+                    bgColor: constSecondaryColor,
+                  )
+                : const TileListBuilder(),
           ),
         ],
       ),

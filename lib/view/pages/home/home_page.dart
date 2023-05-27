@@ -4,7 +4,7 @@ import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:mini_naplo/controllers/api_service.dart';
 import 'package:mini_naplo/view/pages/home/components/eval_tile.dart';
 import 'package:mini_naplo/constants/constants.dart';
-import 'package:mini_naplo/view/pages/static_page_frame.dart';
+import 'package:mini_naplo/view/pages/rive_page_frame.dart';
 
 
 class HomePage extends GetView<ApiService> {
@@ -13,6 +13,8 @@ class HomePage extends GetView<ApiService> {
   @override
   Widget build(BuildContext context) {
     return PageFrame(
+      bgAsset: constBgRive,      
+      needBgImage: false,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

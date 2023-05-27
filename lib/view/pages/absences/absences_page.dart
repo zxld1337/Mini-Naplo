@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mini_naplo/controllers/api_service.dart';
 import 'package:mini_naplo/models/absences.dart';
-import 'package:mini_naplo/view/pages/static_page_frame.dart';
+import 'package:mini_naplo/view/pages/rive_page_frame.dart';
 import 'components/absences_tile.dart';
 import 'components/square_tile.dart';
 import 'package:mini_naplo/constants/constants.dart';
@@ -14,6 +14,8 @@ class AbsencesPage extends GetView<ApiService> {
   @override
   Widget build(BuildContext context) {
     return PageFrame(
+      bgAsset: constBgRive,
+      needBgImage: false,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
