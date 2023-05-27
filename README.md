@@ -4,12 +4,7 @@
 ### Created this project for school, and to learn Flutter 
 
 ## UI
-<div style="display: flex;">
-    <img src="assets/ui_examples/login_ui.png" style="flex: 25%; padding: 5px;">
-    <img src="assets/ui_examples/main_page.png" style="flex: 25%; padding: 5px;">
-    <img src="assets/ui_examples/timetable_page.png" style="flex: 25%; padding: 5px;">
-    <img src="assets/ui_examples/absences_page.png" style="flex: 25%; padding: 5px;">
-</div>
+| ![Login](assets/ui_examples/login_ui.png) | ![Home](assets/ui_examples/main_page.png) | ![Timetable](assets/ui_examples/timetable_page.png) | ![Absences](assets/ui_examples/absences_page.png) |
 
 ### About
 - Only useable for my school [VBJ] 
