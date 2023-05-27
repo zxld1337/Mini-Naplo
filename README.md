@@ -16,9 +16,10 @@
 - Only useable for my school [VBJ] 
 - Needs network to load data
 
-#### project is discontinued
-#### reason: wanted to start from ground up 
-
+```
+ project is discontinued
+ reason: wanted to start from ground up 
+```
 
 
 
